@@ -964,6 +964,7 @@ AddEventHandler('esx_policejob:handcuff', function()
       SetEnableHandcuffs(playerPed, false)
       SetPedCanPlayGestureAnims(playerPed,  true)
       FreezeEntityPosition(playerPed, false)
+	  DisplayRadar(true)
 
     end
 

@@ -1,0 +1,181 @@
+@font-face {
+  font-family: SignPainter;
+  src: url('../fonts/pdown.ttf');
+}
+
+@font-face {
+  font-family: signpainter2;
+  src: url('../fonts/signpainter.ttf');
+}
+
+@font-face {
+  font-family: vo;
+  src: url('../fonts/bankgothic.ttf');
+}
+
+@font-face {
+  font-family: glitch;
+  src: url('../fonts/pdown.ttf');
+}
+
+@font-face {
+  font-family: bg;
+  src: url('../fonts/bankgothic2.ttf');
+}
+
+@font-face {
+  font-family: chalet;
+  src: url('../fonts/ChaletLondonNineteenSixty.ttf');
+}
+
+
+.menu {
+  font-family: vo;
+  min-width  : 22.5vw;
+  color      : #fff;
+  position   : absolute;
+}
+
+
+.menu.align-left {
+	left: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+	left: 40;
+	top: 40;
+}
+
+.menu.align-top {
+	left: 50%;
+	top: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-top-right {
+	right: 10;
+	top: 40;
+}
+
+.menu.align-right {
+	right: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+	right: 40;
+	bottom: 40;
+}
+
+.menu.align-bottom {
+	left: 50%;
+	bottom: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-bottom-left {
+	left: 40;
+	bottom: 40;
+}
+
+.menu.align-center {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.menu .head {
+  font-family: SignPainter;  
+  font-size: 59px;
+
+  background: linear-gradient(to left bottom,   #3A539B,  #1F3A93 );
+  text-align      : center;
+  height          : 90px;
+  line-height     : 105px;
+  color : white;
+  font-style: oblique;
+
+  
+}
+
+#headtext {
+  display: inline-block;
+  margin-top: 2vh;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+
+.menu .head_ {
+  font-family: signpainter2;
+  font-size: 3.5vw;
+
+  background: -webkit-linear-gradient(-45deg, rgba(11,60,123,1) 0%,rgba(46,105,187,1) 100%);
+  text-align      : center;
+  vertical-align: text-bottom;
+  height          : 10vh;
+  color : white;
+}
+
+.menu .categorie {
+  font-family: chalet;
+  font-size       : 1.75vh;
+  height          : 3.5vh;
+  padding: 0 10px;
+  color: rgb(46,105,187);
+  background-color: rgba(0, 0, 0, 1);
+  text-transform: uppercase;
+  font-weight: medium;
+  position: left;
+}
+
+#catText {
+  margin-top: 0.75vh;
+  display: inline-block;
+}
+
+#itemText {
+  padding-top: 0.5vh;
+}
+
+.menu .categorie2 {
+  font-family:  glitch;
+  font-size       : 23px;
+  height          : 0px;
+  line-height     : 35px;
+  padding: 0 10px;
+  color: white ;
+  background-color: rgba(0, 0, 0, 1);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 10px;
+  position: relative;
+  left: 250px;
+  top: -30px;
+
+}
+
+.menu .menu-items {
+    max-height : 35vh;
+    overflow-y : hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.menu .menu-items .menu-item {
+  display         : block;
+  font-size       : 2vh;
+  height          : 3vh;
+  color           : white;
+  text-align      : left;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu .menu-items .menu-item.selected {
+  background-color: white;
+  color :black;
+}
+
+

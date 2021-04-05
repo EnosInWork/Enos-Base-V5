@@ -110,7 +110,7 @@ AddEventHandler('esx_holdupbank:rob', function(robb)
 							TriggerClientEvent('esx_holdupbank:robberycomplete', savedSource, job)
 							if(xPlayer)then
 
-								xPlayer.addMoney(bank.reward)
+								xPlayer.addAccountMoney('black_money', bank.reward)
 								local xPlayers = ESX.GetPlayers()
 								for i=1, #xPlayers, 1 do
 									local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
@@ -143,7 +143,7 @@ function VoleArgent(source)
 
 			local xPlayer  = ESX.GetPlayerFromId(source)
 			Citizen.Wait(100)
-			xPlayer.addMoney(550)			
+			xPlayer.addAccountMoney('black_money', 550)			
 			VoleArgent(source)
 			TriggerClientEvent('esx_holdupbank:VoleArgent', source)
 

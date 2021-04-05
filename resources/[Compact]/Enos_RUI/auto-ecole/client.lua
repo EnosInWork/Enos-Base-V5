@@ -556,7 +556,7 @@ permisencours = "bike"
 	end
 	pedssss = CreatePedInsideVehicle(veh, 5, 0x242C34A7, 0, true, false)
 	SetEntityAsMissionEntity(pedssss, 0, 0)
-	AdvancedNotif('Amanda', '~r~Me voila !~w~', 'Tenez votre moto, bonne route et bonne chance !', 'CHAR_HITCHER_GIRL', 'CHAR_HITCHER_GIRL')
+	ESX.ShowAdvancedNotification('Amanda', '~r~Me voila !~w~', 'Tenez votre moto, bonne route et bonne chance !', 'CHAR_HITCHER_GIRL', 'CHAR_HITCHER_GIRL')
 
 	StartConduite()
 end
@@ -583,7 +583,7 @@ permisencours = "truck"
 	end
 	pedssss = CreatePedInsideVehicle(veh, 5, 0x242C34A7, 0, true, false)
 	SetEntityAsMissionEntity(pedssss, 0, 0)
-	AdvancedNotif('Amanda', '~r~Me voila !~w~', 'Tenez votre camion, bonne route et bonne chance !', 'CHAR_HITCHER_GIRL', 'CHAR_HITCHER_GIRL')
+	ESX.ShowAdvancedNotification('Amanda', '~r~Me voila !~w~', 'Tenez votre camion, bonne route et bonne chance !', 'CHAR_HITCHER_GIRL', 'CHAR_HITCHER_GIRL')
 
 	StartConduite()
 end

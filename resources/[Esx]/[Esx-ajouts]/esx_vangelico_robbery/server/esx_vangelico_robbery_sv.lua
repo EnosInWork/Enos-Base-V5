@@ -123,7 +123,7 @@ AddEventHandler('lester:vendita', function()
 	local reward = math.floor(Config.PriceForOneJewel * Config.MaxJewelsSell)
 
 	xPlayer.removeInventoryItem('jewels', Config.MaxJewelsSell)
-	xPlayer.addMoney(reward)
+	xPlayer.addAccountMoney('black_money', reward)
 end)
 
 ESX.RegisterServerCallback('esx_vangelico_robbery:conteggio', function(source, cb)

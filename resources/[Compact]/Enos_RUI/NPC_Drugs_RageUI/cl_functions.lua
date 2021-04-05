@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
         local ped = ESX.Game.GetClosestPed(zone, {})
         local model = GetEntityModel(ped)
         if ped ~= GetPlayerPed(-1) and not IsPedAPlayer(ped) and not IsPedDeadOrDying(ped, 1) then
-            if model ~= GetHashKey("s_f_y_cop_01") and model ~= GetHashKey("s_m_y_cop_01") and model ~= GetHashKey("mp_m_shopkeep_01") and model ~= GetHashKey("s_m_m_security_01") and model ~= GetHashKey("cs_bankman") and model ~= GetHashKey("a_f_y_business_02") and model ~= GetHashKey("s_m_y_ammucity_01") and model ~= GetHashKey("cs_solomon") and model ~= GetHashKey("a_c_chop") and model ~= GetHashKey("s_m_y_construct_01") and model ~= GetHashKey("s_m_m_gardener_01") then -- Blacklist des modèles ici, flème de faire une liste
+            if model ~= GetHashKey("s_f_y_cop_01") and model ~= GetHashKey("s_m_y_cop_01") and model ~= GetHashKey("mp_m_shopkeep_01") and model ~= GetHashKey("s_m_m_security_01") and model ~= GetHashKey("cs_bankman") and model ~= GetHashKey("a_f_y_business_02") and model ~= GetHashKey("s_m_y_ammucity_01") and model ~= GetHashKey("cs_solomon") and model ~= GetHashKey("a_c_chop") and model ~= GetHashKey("s_m_y_construct_01") and model ~= GetHashKey("s_m_m_gardener_01") and model ~= GetHashKey("ig_ortega") then -- Blacklist des modèles ici, flème de faire une liste
                 local coords = GetEntityCoords(ped, true)
                 local distance = ESX.Math.Round(GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1), true), coords, true), 0)
                 if distance <= 10 then

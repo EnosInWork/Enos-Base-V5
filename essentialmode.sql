@@ -276,7 +276,7 @@ CREATE TABLE `baninfo` (
 --
 
 INSERT INTO `baninfo` (`id`, `license`, `identifier`, `liveid`, `xblid`, `discord`, `playerip`, `playername`) VALUES
-(1, 'license:1dc198bc80a8a6f99c58e103f76a7062361b145c', 'steam:110000112a69b9e', 'live:914802173416211', 'xbl:2535407509013894', 'discord:404389599843188758', 'ip:127.0.0.1', '[Dev] Enøs');  --Noobies va
+(1, 'license:1dc198bc80a8a6f99c58e103f76a7062361b145c', 'steam:110000112a69b9e', 'live:914802173416211', 'xbl:2535407509013894', 'discord:404389599843188758', 'ip:127.0.0.1', '[Dev] Enøs');
 
 -- --------------------------------------------------------
 

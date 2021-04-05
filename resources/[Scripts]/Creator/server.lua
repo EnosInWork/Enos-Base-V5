@@ -111,3 +111,23 @@ AddEventHandler("val_i:Updatedate", function(dateInput)
 	MySQL.Async.execute("UPDATE users SET dateofbirth=@dateInput WHERE identifier=@identifier", {['@identifier'] = identifier,['@dateInput'] = tostring(newdate)})
 
 end)
+
+RegisterServerEvent("val_i:Updateorigine")
+
+AddEventHandler("val_i:Updateorigine", function(origineInput)
+
+	local source = source
+
+	local identifier = GetPlayerIdentifiers(source)[1]
+
+	local neworigine = origineInput
+
+	if (tostring(origineInput) == nil) then
+
+      return false
+
+	end
+
+	MySQL.Async.execute("UPDATE users SET origine=@origineInput WHERE identifier=@identifier", {['@identifier'] = identifier,['@origineInput'] = tostring(neworigine)})
+
+end)

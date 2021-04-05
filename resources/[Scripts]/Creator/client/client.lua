@@ -240,6 +240,17 @@ end
 
 Apperance = {
 	{
+		item = 'hair',
+		List = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ,16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73},
+		index = 1,
+		indextwo = 1,
+		cam = 'face',
+		itemType = 'component',
+		itemID = 2,
+		PercentagePanel = false,
+		ColourPanel = true,
+	},
+	{
 		item = 'eyebrows',
 		List = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ,16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33},
 		index = 1,
@@ -383,7 +394,10 @@ function updateApperance(id, color)
 	end
 
     if color then
-        if app.itemType == 'headoverlay' then
+    	if app.itemType == 'component' then
+            SetPedHairColor(playerPed, app.indextwo, 0)
+            Character['hair_color_1'] = app.indextwo
+        elseif app.itemType == 'headoverlay' then
             SetPedHeadOverlayColor(playerPed, app.itemID, 1, app.indextwo, 0)
             Character[app.item..'_3'] = app.indextwo
         end

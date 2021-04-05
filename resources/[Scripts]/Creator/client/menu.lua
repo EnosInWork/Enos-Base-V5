@@ -6,29 +6,24 @@ end
 
 local nameInput, prenomInput,tailleInput,sexInput,ageInput = nil, nil, nil, nil
 
-function KeyboardOutput(TextEntry, ExampleText, MaxStringLenght)
+local function KeyboardInput(TextEntry, ExampleText, MaxStringLenght)
+	AddTextEntry('FMMC_KEY_TIP1', TextEntry)
+	DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP1", "", ExampleText, "", "", "", MaxStringLenght)
+	blockinput = true
 
-	-- TextEntry		-->	The Text above the typing field in the black square
-	-- ExampleText		-->	An Example Text, what it should say in the typing field
-	-- MaxStringLenght	-->	Maximum String Lenght
-
-	AddTextEntry('FMMC_KEY_TIP1', TextEntry) --Sets the Text above the typing field in the black square
-	DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP1", "", ExampleText, "", "", "", MaxStringLenght) --Actually calls the Keyboard Input
-	blockinput = true --Blocks new input while typing if **blockinput** is used
-
-	while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do --While typing is not aborted and not finished, this loop waits
+	while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do
 		Citizen.Wait(0)
 	end
 		
 	if UpdateOnscreenKeyboard() ~= 2 then
-		local result = GetOnscreenKeyboardResult() --Gets the result of the typing
-		Citizen.Wait(500) --Little Time Delay, so the Keyboard won't open again if you press enter to finish the typing
-		blockinput = false --This unblocks new Input when typing is done
+		local result = GetOnscreenKeyboardResult()
+		Citizen.Wait(500)
+		blockinput = false
 		return result --Returns the result
 	else
-		Citizen.Wait(500) --Little Time Delay, so the Keyboard won't open again if you press enter to finish the typing
-		blockinput = false --This unblocks new Input when typing is done
-		return nil --Returns nil if the typing got aborted
+		Citizen.Wait(500)
+		blockinput = false
+		return nil
 	end
 end
 
@@ -307,7 +302,7 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 		RageUI.Button("Prénom", "Inscrivez votre ~b~Prénom~s~", {RightLabel = nameidentity}, true, function(Hovered, Active, Selected)
 
 			if (Selected) then 
-				local nameInput = KeyboardOutput("Votre Prénom :", "", 10)
+				local nameInput = KeyboardInput("Votre Prénom :", "", 10)
 
 				if tostring(nameInput) == nil then
 	
@@ -325,7 +320,7 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 		end)
 		RageUI.Button("Nom", "Inscrivez votre ~b~Nom~s~", {RightLabel = prenomidentity}, true, function(Hovered, Active, Selected)
 			if (Selected) then 
-				local prenomInput = KeyboardOutput("Votre Nom :", "", 10)
+				local prenomInput = KeyboardInput("Votre Nom :", "", 10)
 
 				if tostring(prenomInput) == nil then
 	
@@ -344,7 +339,7 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 
 		RageUI.Button("Taille", "Inscrivez votre ~b~Taille ~s~(cm) dans le champ indiqué", {RightLabel = tailleidentity}, true, function(Hovered, Active, Selected)
 			if (Selected) then 
-				local tailleInput = KeyboardOutput("Votre Taille :", "185", 10)
+				local tailleInput = KeyboardInput("Votre Taille :", "185", 10)
 
 				if tostring(tailleInput) == nil then
 	
@@ -363,7 +358,7 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 
 		RageUI.Button("Sexualité", "Inscrivez ~b~H~s~ ou ~p~F~s~ dans le champ indiqué", {RightLabel = sexidentity}, true, function(Hovered, Active, Selected)
 			if (Selected) then 
-				local sexInput = KeyboardOutput("Votre Sex :", "(H/F)", 10)
+				local sexInput = KeyboardInput("Votre Sex :", "(H/F)", 10)
 
 				if tostring(sexInput) == nil then
 	
@@ -382,7 +377,7 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 
 		RageUI.Button("Date de Naissance", "Inscrivez votre ~b~Date de Naissance", {RightLabel = dateidentity}, true, function(Hovered, Active, Selected)
 			if (Selected) then 
-				local dateInput = KeyboardOutput("Votre Date de Naissance  :", "16/09/2002", 10)
+				local dateInput = KeyboardInput("Votre Date de Naissance  :", "16/09/2002", 10)
 
 				if tostring(dateInput) == nil then
 	
@@ -398,6 +393,25 @@ RageUI.CreateWhile(1.0, mainMenu, nil, function()
 			end    
 
 		end)
+
+		--RageUI.Button("Origine", "Inscrivez votre ~b~Origine~s~ (Pays)", {RightLabel = origineidentity}, true, function(Hovered, Active, Selected)
+		--	if (Selected) then 
+		--		local origineInput = KeyboardInput("Votre Origine  :", "Los Santos", 20)
+
+		--		if tostring(origineInput) == nil then
+	
+		--			return false
+	
+		--		else
+	
+		--			origineidentity = (tostring(origineInput))
+	
+		--			TriggerServerEvent("val_i:Updateorigine", tostring(origineInput))
+	
+		--		end
+		--	end    
+
+		--end)
 
 		RageUI.Button("Retour", nil, {Color = {BackgroundColor = RageUI.ItemsColour.Gang1}}, true, function(Hovered, Active, Selected)
 			if Selected then

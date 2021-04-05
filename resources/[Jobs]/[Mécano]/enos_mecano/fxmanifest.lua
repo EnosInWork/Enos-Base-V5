@@ -29,6 +29,7 @@ client_scripts {
     'client/cl_coffre.lua',
     'client/cl_boss.lua',
     'client/cl_garage.lua',
+    'client/cl_boutique.lua',
     'config.lua'
 }
 
@@ -37,6 +38,7 @@ server_scripts {
     '@es_extended/locale.lua',
     'locales/fr.lua',
     'server/server.lua',
+    'server/sv_boutique.lua',
     'config.lua'
 }
 

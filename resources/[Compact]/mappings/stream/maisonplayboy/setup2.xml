@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SSetupData>
+  <deviceName>dlc_int_mafc</deviceName>
+  <datFile>content.xml</datFile>
+  <timeStamp>22/10/2018 12:00:00</timeStamp>
+  <nameHash>int_mafc</nameHash>
+  <contentChangeSets />
+  <contentChangeSetGroups>
+    <Item>
+      <NameHash>GROUP_MAP</NameHash>
+      <ContentChangeSets>
+        <Item>int_mafc_STREAM</Item>
+      </ContentChangeSets>
+    </Item>
+  </contentChangeSetGroups>
+  <startupScript />
+  <scriptCallstackSize value="0" />
+  <type>EXTRACONTENT_COMPAT_PACK</type>
+  <order value="31" />
+  <minorOrder value="0" />
+  <isLevelPack value="false" />
+  <dependencyPackHash />
+  <requiredVersion />
+  <subPackCount value="0" />
+</SSetupData>

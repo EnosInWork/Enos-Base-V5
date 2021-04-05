@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CVehicleModelInfoVariation>
+  <variationData>
+		<Item>
+      <modelName>brickade2</modelName>
+      <colors>
+        <Item>
+          <indices content="char_array">
+            132
+            131 
+            131 
+            156  
+          </indices>
+          <liveries/>
+        </Item>
+      </colors>
+      <kits>
+      </kits>
+      <windowsWithExposedEdges />
+      <plateProbabilities>
+        <Probabilities>
+          <Item>
+            <Name>Police guv plate</Name>
+            <Value value="100" />
+          </Item>
+        </Probabilities>
+      </plateProbabilities>
+      <lightSettings value="154" />
+      <sirenSettings value="0" />
+    </Item>
+    <Item>
+      <modelName>stockade</modelName>
+      <colors>
+        <Item>
+          <indices content="char_array">
+            <Item value="111" />
+            <Item value="111" />
+            <Item value="111" />
+            <Item value="156" />
+          </indices>
+          <liveries/>
+        </Item>
+      </colors>
+      <kits>
+        <Item>0_default_modkit</Item>
+      </kits>
+      <windowsWithExposedEdges />
+      <plateProbabilities>
+        <Probabilities>
+          <Item>
+            <Name>standard white</Name>
+            <Value value="50" />
+          </Item>
+          <Item>
+            <Name>white plate 2</Name>
+            <Value value="50" />
+          </Item>
+        </Probabilities>
+      </plateProbabilities>
+      <lightSettings value="0" />
+      <sirenSettings value="0" />
+    </Item>
+		<Item>
+      <modelName>stockade4</modelName>
+      <colors>
+        <Item>
+          <indices content="char_array">
+            <Item value="111" />
+            <Item value="111" />
+            <Item value="111" />
+            <Item value="156" />
+          </indices>
+          <liveries/>
+        </Item>
+      </colors>
+      <kits>
+        <Item>0_default_modkit</Item>
+      </kits>
+      <windowsWithExposedEdges />
+      <plateProbabilities>
+        <Probabilities>
+          <Item>
+            <Name>standard white</Name>
+            <Value value="50" />
+          </Item>
+          <Item>
+            <Name>white plate 2</Name>
+            <Value value="50" />
+          </Item>
+        </Probabilities>
+      </plateProbabilities>
+      <lightSettings value="0" />
+      <sirenSettings value="0" />
+    </Item>
+  </variationData>
+</CVehicleModelInfoVariation>

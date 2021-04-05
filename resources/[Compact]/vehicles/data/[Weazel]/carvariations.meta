@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<CVehicleModelInfoVariation>
+	<variationData>
+		<Item>
+			<modelName>newsheli</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+						<Item value="134" />
+						<Item value="134" />
+						<Item value="111" />
+						<Item value="156" />
+					</indices>
+					<liveries />
+				</Item>
+			</colors>
+			<kits>
+				<Item>1000_newsheli_modkit</Item>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities />
+			</plateProbabilities>
+			<lightSettings value="1000" />
+			<sirenSettings value="0" />
+		</Item>
+		<Item>
+			<modelName>newsheli2</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+						<Item value="134" />
+						<Item value="134" />
+						<Item value="111" />
+						<Item value="156" />
+					</indices>
+					<liveries />
+				</Item>
+			</colors>
+			<kits>
+				<Item>1000_newsheli2_modkit</Item>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities />
+			</plateProbabilities>
+			<lightSettings value="1000" />
+			<sirenSettings value="0" />
+		</Item>		
+		<Item>
+			<modelName>newsvan</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+						<Item value="134" />
+						<Item value="134" />
+						<Item value="111" />
+						<Item value="156" />
+					</indices>
+					<liveries />
+				</Item>
+			</colors>
+			<kits>
+				<Item>1001_newsvan_modkit</Item>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities>
+					<Item>
+						<Name>standard white</Name>
+						<Value value="40" />
+					</Item>
+					<Item>
+						<Name>white plate 2</Name>
+						<Value value="60" />
+					</Item>
+				</Probabilities>
+			</plateProbabilities>
+			<lightSettings value="1001" />
+			<sirenSettings value="0" />
+		</Item>	
+	</variationData>
+</CVehicleModelInfoVariation>

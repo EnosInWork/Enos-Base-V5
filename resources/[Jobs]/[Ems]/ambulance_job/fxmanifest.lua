@@ -50,7 +50,8 @@ client_scripts {
 	'client/enos_event.lua',
 	'client/cl_enos.lua',
 	'client/cl_coffre.lua',
-	'client/cl_boss.lua'
+	'client/cl_boss.lua',
+	'client/cl_pharmacie.lua'
 }
 
 dependency 'es_extended'

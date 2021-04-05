@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('img').show();
         $('#name').css('color', '#282828');
 
-        if ( sex.toLowerCase() == 'm' ) {
+        if ( sex.toLowerCase() == 'h' ) {
           $('img').attr('src', 'assets/images/male.png');
           $('#sex').text('male');
         } else {

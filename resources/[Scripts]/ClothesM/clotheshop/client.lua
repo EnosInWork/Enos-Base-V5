@@ -455,6 +455,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
 	
@@ -505,6 +506,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
     
@@ -554,6 +556,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
     
@@ -603,6 +606,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
     
@@ -652,6 +656,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
     
@@ -691,6 +696,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
 	
@@ -731,6 +737,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
 	
@@ -805,6 +812,7 @@ Citizen.CreateThread(function()
                     end
                     if (Selected) then
                         TriggerServerEvent("dqp:SetNewMasque", glasses1, glasses2,"Lunette", lunetteItem[i])
+                        TriggerServerEvent('shop:price', 25)
                     end
                 end)
         
@@ -847,6 +855,7 @@ Citizen.CreateThread(function()
             
                            }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                            
                        
                        
@@ -879,7 +888,7 @@ Citizen.CreateThread(function()
             end
             Angle()
             for a = 1, 144 do
-                RageUI.Button("Bras #" .. a, "Cette tenue est disponible dans notre magasin.", { RightLabel = "~g~25$" }, true, function(Hovered, Active, Selected)
+                RageUI.Button("Bras #" .. a, "Cette tenue est disponible dans notre magasin.", { RightLabel = "~g~0$" }, true, function(Hovered, Active, Selected)
                     if (Active) then
                         arms1 = a
                         SetPedComponentVariation(GetPlayerPed(-1), 3, arms1)
@@ -983,6 +992,7 @@ Citizen.CreateThread(function()
                     end
                     if (Selected) then
                         TriggerServerEvent("Mushy:SetNewMasque",boucl1,boucl2,"Boucle",boucleItem[i],2)
+                        TriggerServerEvent('shop:price', 25)
                     end
                 end)
         
@@ -1031,6 +1041,7 @@ Citizen.CreateThread(function()
             
                            }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                            
                        
                        
@@ -1077,6 +1088,7 @@ Citizen.CreateThread(function()
         
                         }
                        TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                       TriggerServerEvent('shop:price', 25)
                        
                    
                    
@@ -1108,6 +1120,7 @@ Citizen.CreateThread(function()
                        }
         
                        TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                       TriggerServerEvent('shop:price', 25)
                        
                    
                    
@@ -1138,6 +1151,7 @@ Citizen.CreateThread(function()
         
                         }
                        TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                       TriggerServerEvent('shop:price', 25)
                        
                    
                    
@@ -1182,6 +1196,7 @@ Citizen.CreateThread(function()
         
                             }
                            TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+                           TriggerServerEvent('shop:price', 25)
                         end)
                         TriggerEvent('skinchanger:getSkin', function(skin)
 	
@@ -1295,6 +1310,7 @@ Citizen.CreateThread(function()
                     end
                     if (Selected) then
                         TriggerServerEvent("Mushy:SetNewMasque", hats1-1,hats2,"Chapeau",chapeauItem[i],0)
+                        TriggerServerEvent('shop:price', 25)
                     end
                 end)
         

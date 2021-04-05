@@ -165,3 +165,12 @@ AddEventHandler('Mushy:GiveAccessories', function(target,id,label)
 			TriggerClientEvent("Mushy:SyncAccess",target)
 
 end)
+
+RegisterNetEvent('shop:price')
+AddEventHandler('shop:price', function(prix)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local playerMoney = xPlayer.getMoney()
+	xPlayer.removeMoney(prix)
+	TriggerClientEvent('esx:showNotification', source, "~y~Shop~w~ : Vous avez payer 25$ ! ")
+
+end)

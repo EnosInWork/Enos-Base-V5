@@ -446,3 +446,93 @@ AddEventHandler('EMS:SyncPNJ', function()
 	local _source = source
 	TriggerClientEvent("EMS:NpcAppel", _source)
 end)
+
+
+----------------------------------------------
+
+RegisterServerEvent('enos:getStockItem')
+AddEventHandler('enos:getStockItem', function(itemName, count)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	local sourceItem = xPlayer.getInventoryItem(itemName)
+
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ambulance', function(inventory)
+		local inventoryItem = inventory.getItem(itemName)
+
+		-- is there enough in the society?
+		if count > 0 and inventoryItem.count >= count then
+
+			-- can the player carry the said amount of x item?
+			if sourceItem.limit ~= -1 and (sourceItem.count + count) > sourceItem.limit then
+				TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+			else
+				inventory.removeItem(itemName, count)
+				xPlayer.addInventoryItem(itemName, count)
+				TriggerClientEvent('esx:showNotification', _source, 'Objet retiré', count, inventoryItem.label)
+			end
+		else
+			TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+		end
+	end)
+end)
+
+
+RegisterNetEvent('enos:putStockItems')
+AddEventHandler('enos:putStockItems', function(itemName, count)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local sourceItem = xPlayer.getInventoryItem(itemName)
+
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ambulance', function(inventory)
+		local inventoryItem = inventory.getItem(itemName)
+
+		-- does the player have enough of the item?
+		if sourceItem.count >= count and count > 0 then
+			xPlayer.removeInventoryItem(itemName, count)
+			inventory.addItem(itemName, count)
+			TriggerClientEvent('esx:showNotification', _source, "Objet déposé "..count..""..inventoryItem.label.."")
+		else
+			TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+		end
+	end)
+end)
+
+
+ESX.RegisterServerCallback('enos:getPlayerInventory', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local items   = xPlayer.inventory
+
+	cb({items = items})
+end)
+
+ESX.RegisterServerCallback('enos:getStockItems', function(source, cb)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ambulance', function(inventory)
+		cb(inventory.items)
+	end)
+end)
+
+ESX.RegisterServerCallback('enos:getStockItem', function(source, cb)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_ambulance', function(inventory)
+		cb(inventory.items)
+	end)
+end)
+
+RegisterNetEvent('kaiiroz:BuyKit')
+AddEventHandler('kaiiroz:BuyKit', function()
+
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+        xPlayer.addInventoryItem('medikit', 1)
+        TriggerClientEvent('esx:showNotification', source, "~g~Achats~w~ effectué !")
+end)
+
+RegisterNetEvent('kaiiroz:BuyBandage')
+AddEventHandler('kaiiroz:BuyBandage', function()
+
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+        xPlayer.addInventoryItem('bandage', 2)
+        TriggerClientEvent('esx:showNotification', source, "~g~Achats~w~ effectué !")
+end)

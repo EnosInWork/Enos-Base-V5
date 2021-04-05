@@ -110,7 +110,7 @@ function ouvrirpointventeconc()
                     if closestPlayer == -1 or closestDistance > 3.0 then
                         ESX.ShowNotification('Personne autour')
                     else
-                    	local amount = KeyboardInput('Veuillez saisir le montant de la facture', '', 4)
+                    	local amount = KeyboardInput('Veuillez saisir le montant de la facture', '', 8)
                         TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_concess', 'concess', amount)
                     end
                 end

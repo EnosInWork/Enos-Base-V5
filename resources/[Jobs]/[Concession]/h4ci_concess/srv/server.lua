@@ -76,7 +76,7 @@ end)
         ['@plate']   = vehicleProps.plate,
         ['@vehicle'] = json.encode(vehicleProps)
     }, function(rowsChange)
-        TriggerClientEvent('esx:showNotification', xPlayer, "Tu as reçu la voiture ~g~"..nom.."~s~ immatriculé ~g~"..plaque.." pour ~g~" ..prix.. "$")
+        TriggerClientEvent('esx:showNotification', xPlayer, "Tu as reçu la voiture ~g~"..json.encode(vehicleProps).."~s~ immatriculé ~g~"..vehicleProps.plate.." pour ~g~" ..prix.. "$")
     end)
 end)
 

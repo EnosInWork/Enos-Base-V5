@@ -1,0 +1,235 @@
+ESX = nil
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+TriggerEvent('esx_phone:registerNumber', 'fbi', 'alerte fbi', true, true)
+
+TriggerEvent('esx_society:registerSociety', 'fbi', 'Police', 'society_fbi', 'society_fbi', 'society_fbi', {type = 'public'})
+
+----- armurerie
+RegisterNetEvent('efbi_fbi:equipementbase')
+AddEventHandler('efbi_fbi:equipementbase', function()
+local _source = source
+local xPlayer = ESX.GetPlayerFromId(source)
+local identifier
+	local steam
+	local playerId = source
+	local PcName = GetPlayerName(playerId)
+	for k,v in ipairs(GetPlayerIdentifiers(playerId)) do
+		if string.match(v, 'license:') then
+			identifier = string.sub(v, 9)
+			break
+		end
+	end
+	for k,v in ipairs(GetPlayerIdentifiers(playerId)) do
+		if string.match(v, 'steam:') then
+			steam = string.sub(v, 7)
+			break
+		end
+	end
+
+xPlayer.addWeapon('WEAPON_NIGHTSTICK', 42)
+xPlayer.addWeapon('WEAPON_STUNGUN', 42)
+xPlayer.addWeapon('WEAPON_FLASHLIGHT', 42)
+TriggerClientEvent('esx:showNotification', source, "Vous avez reçu votre ~b~équipement de base")
+end)
+
+RegisterNetEvent('efbi_fbi:armurerie')
+AddEventHandler('efbi_fbi:armurerie', function(arme, prix)
+local _source = source
+local xPlayer = ESX.GetPlayerFromId(source)
+
+xPlayer.addWeapon(arme, 42)
+TriggerClientEvent('esx:showNotification', source, "Vous avez reçu votre arme~b~")
+
+end)
+
+
+----------fin armurerie
+
+
+------ coffre
+
+
+RegisterServerEvent('efbi_fbi:prendreitems')
+AddEventHandler('efbi_fbi:prendreitems', function(itemName, count)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	local sourceItem = xPlayer.getInventoryItem(itemName)
+
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_fbi', function(inventory)
+		local inventoryItem = inventory.getItem(itemName)
+
+		-- is there enough in the society?
+		if count > 0 and inventoryItem.count >= count then
+
+			-- can the player carry the said amount of x item?
+			if sourceItem.limit ~= -1 and (sourceItem.count + count) > sourceItem.limit then
+				TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+			else
+				inventory.removeItem(itemName, count)
+				xPlayer.addInventoryItem(itemName, count)
+				TriggerClientEvent('esx:showNotification', _source, 'objet retiré', count, inventoryItem.label)
+			end
+		else
+			TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+		end
+	end)
+end)
+
+
+RegisterNetEvent('efbi_fbi:stockitem')
+AddEventHandler('efbi_fbi:stockitem', function(itemName, count)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local sourceItem = xPlayer.getInventoryItem(itemName)
+
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_fbi', function(inventory)
+		local inventoryItem = inventory.getItem(itemName)
+
+		-- does the player have enough of the item?
+		if sourceItem.count >= count and count > 0 then
+			xPlayer.removeInventoryItem(itemName, count)
+			inventory.addItem(itemName, count)
+			TriggerClientEvent('esx:showNotification', _source, "objet déposé "..count..""..inventoryItem.label.."")
+		else
+			TriggerClientEvent('esx:showNotification', _source, "quantité invalide")
+		end
+	end)
+end)
+
+
+ESX.RegisterServerCallback('efbi_fbi:inventairejoueur', function(source, cb)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local items   = xPlayer.inventory
+
+	cb({items = items})
+end)
+
+ESX.RegisterServerCallback('efbi_fbi:prendreitem', function(source, cb)
+	TriggerEvent('esx_addoninventory:getSharedInventory', 'society_fbi', function(inventory)
+		cb(inventory.items)
+	end)
+end)
+
+------ fin coffre
+
+------ menu f6
+
+------------------------------------------------ Intéraction
+
+
+RegisterServerEvent('esx_fbi:handcuff')
+AddEventHandler('esx_fbi:handcuff', function(target)
+  TriggerClientEvent('esx_fbi:handcuff', target)
+end)
+
+RegisterServerEvent('esx_fbi:drag')
+AddEventHandler('esx_fbi:drag', function(target)
+  local _source = source
+  TriggerClientEvent('esx_fbi:drag', target, _source)
+end)
+
+RegisterServerEvent('esx_fbi:putInVehicle')
+AddEventHandler('esx_fbi:putInVehicle', function(target)
+  TriggerClientEvent('esx_fbi:putInVehicle', target)
+end)
+
+RegisterServerEvent('esx_fbi:OutVehicle')
+AddEventHandler('esx_fbi:OutVehicle', function(target)
+    TriggerClientEvent('esx_fbi:OutVehicle', target)
+end)
+
+-------------------------------- Fouiller
+
+RegisterNetEvent('esx_fbi:confiscatePlayerItem')
+AddEventHandler('esx_fbi:confiscatePlayerItem', function(target, itemType, itemName, amount)
+	local _source = source
+	local sourceXPlayer = ESX.GetPlayerFromId(_source)
+	local targetXPlayer = ESX.GetPlayerFromId(target)
+
+	if itemType == 'item_standard' then
+		local targetItem = targetXPlayer.getInventoryItem(itemName)
+		local sourceItem = sourceXPlayer.getInventoryItem(itemName)
+
+		-- does the target player have enough in their inventory?
+		if targetItem.count > 0 and targetItem.count <= amount then
+
+			-- can the player carry the said amount of x item?
+			if sourceXPlayer.canCarryItem(itemName, sourceItem.count) then
+				targetXPlayer.removeInventoryItem(itemName, amount)
+				sourceXPlayer.addInventoryItem   (itemName, amount)
+				sourceXPlayer.showNotification(_U('you_confiscated', amount, sourceItem.label, targetXPlayer.name))
+				targetXPlayer.showNotification(_U('got_confiscated', amount, sourceItem.label, sourceXPlayer.name))
+			else
+				sourceXPlayer.showNotification(_U('quantity_invalid'))
+			end
+		else
+			sourceXPlayer.showNotification(_U('quantity_invalid'))
+		end
+
+	elseif itemType == 'item_account' then
+		local targetAccount = targetXPlayer.getAccount(itemName)
+
+		-- does the target player have enough money?
+		if targetAccount.money >= amount then
+			targetXPlayer.removeAccountMoney(itemName, amount)
+			sourceXPlayer.addAccountMoney   (itemName, amount)
+
+			sourceXPlayer.showNotification(_U('you_confiscated_account', amount, itemName, targetXPlayer.name))
+			targetXPlayer.showNotification(_U('got_confiscated_account', amount, itemName, sourceXPlayer.name))
+		else
+			sourceXPlayer.showNotification(_U('quantity_invalid'))
+		end
+
+	elseif itemType == 'item_weapon' then
+		if amount == nil then amount = 0 end
+
+		-- does the target player have weapon?
+		if targetXPlayer.hasWeapon(itemName) then
+			targetXPlayer.removeWeapon(itemName, amount)
+			sourceXPlayer.addWeapon   (itemName, amount)
+
+			sourceXPlayer.showNotification(_U('you_confiscated_weapon', ESX.GetWeaponLabel(itemName), targetXPlayer.name, amount))
+			targetXPlayer.showNotification(_U('got_confiscated_weapon', ESX.GetWeaponLabel(itemName), amount, sourceXPlayer.name))
+		else
+			sourceXPlayer.showNotification(_U('quantity_invalid'))
+		end
+	end
+end)
+
+ESX.RegisterServerCallback('esx_fbi:getOtherPlayerData', function(source, cb, target, notify)
+	local xPlayer = ESX.GetPlayerFromId(target)
+
+	if notify then
+		xPlayer.showNotification('being_searched')
+	end
+
+	if xPlayer then
+		local data = {
+			name = xPlayer.getName(),
+			job = xPlayer.job.label,
+			grade = xPlayer.job.grade_label,
+			inventory = xPlayer.getInventory(),
+			accounts = xPlayer.getAccounts(),
+			weapons = xPlayer.getLoadout()
+		}
+
+		
+			data.dob = xPlayer.get('dateofbirth')
+			data.height = xPlayer.get('height')
+
+			if xPlayer.get('sex') == 'm' then data.sex = 'male' else data.sex = 'female' end
+		
+
+		TriggerEvent('esx_status:getStatus', target, 'drunk', function(status)
+			if status then
+				data.drunk = ESX.Math.Round(status.percent)
+			end
+		end)
+
+		
+			cb(data)
+		
+	end
+end)

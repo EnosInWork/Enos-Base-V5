@@ -1,0 +1,32 @@
+Locales['fr'] = {
+  -- Armory
+  ['remove_object'] = 'prendre Objet',
+  ['deposit_object'] = 'déposer objet',
+  ['get_weapon'] = 'prendre Arme',
+  ['put_weapon'] = 'déposer Arme',
+  ['buy_weapons'] = 'acheter Armes',
+  ['armory'] = 'Saisi',
+  ['open_armory'] = 'appuyez sur ~INPUT_CONTEXT~ pour accéder au Saisi',
+  ['armory_owned'] = 'possédé',
+  ['armory_free'] = 'gratuit',
+  ['armory_item'] = '$%s',
+  ['armory_weapontitle'] = 'Saisi - Acheter une arme',
+  ['armory_componenttitle'] = 'Saisi - Accessoires d\'armes',
+  ['armory_bought'] = 'vous achetez un ~y~%s~s~ pour ~r~$%s~s~',
+  ['armory_money'] = 'vous ne pouvez pas acheter cette arme',
+  ['armory_hascomponent'] = 'vous avez cet accessoire équipé!',
+  ['get_weapon_menu'] = 'Saisi - Retirer arme',
+  ['put_weapon_menu'] = 'Saisi - Stocker arme',
+  -- Boss Menu
+  ['open_bossmenu'] = 'appuyez sur ~INPUT_CONTEXT~ pour ouvrir le menu',
+  ['quantity_invalid'] = 'quantité invalide',
+  ['have_withdrawn'] = 'vous avez retiré ~y~%sx~s~ ~b~%s~s~',
+  ['have_deposited'] = 'vous avez déposé ~y~%sx~s~ ~b~%s~s~',
+  ['quantity'] = 'quantité',
+  ['inventory'] = 'inventaire',
+  ['douane_stock'] = 'Coffre de l\'unicorn',
+  -- Notifications
+  ['alert_unicorn'] = 'Alerte Unicorn',
+  ['phone_unicorn'] = 'Unicorn',
+  ['mechanic_stock'] = 'Stock Unicorn',
+}

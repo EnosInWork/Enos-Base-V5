@@ -1,0 +1,19 @@
+exports["Original_progressbar"]:AfficherProgressbar(5.0)                   -- (5.0) est le nombre de secondes ou la progressbar sera afficher ( donc la 5 secondes)
+
+exports["Original_progressbar"]:CacherProgressbar()                        -- Cache la progressbar
+
+
+-----------------------------
+-----------------------------
+----                    -----
+----     ORIGINAL RP    -----
+----                    -----
+-----------------------------
+-----------------------------
+-----------------------------
+-----------------------------
+----    d4rktoxe#8008    ----
+----    Rubylium#3694    ----
+----    Rmz Sly#0489     ----
+-----------------------------
+-----------------------------

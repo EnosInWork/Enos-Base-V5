@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="script.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo%20One" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="speedo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 345 210">
+                <linearGradient id="lgv-acceleration" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-opacity="1" stop-color="#ffffff" />
+                    <stop id="lgv-acceleration-stop" offset="0%" stop-opacity="1" stop-color="#ffffff" />
+                    <stop offset="0%" stop-opacity="0" />
+                    <stop offset="100%" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="lgh-acceleration" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-opacity="1" stop-color="#ffffff" />
+                    <stop id="lgh-acceleration-stop" offset="0%" stop-opacity="1" stop-color="#ffffff" />
+                    <stop offset="0%" stop-opacity="0" />
+                    <stop offset="100%" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="lgv-speed" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-opacity="1" stop-color="#3283a8" />
+                    <stop id="lgv-speed-stop" offset="0%" stop-opacity="1" stop-color="#3283a8" />
+                    <stop offset="0%" stop-opacity="0" />
+                    <stop offset="100%" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="lgh-speed" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-opacity="1" stop-color="#3283a8" />
+                    <stop id="lgh-speed-stop" offset="0%" stop-opacity="1" stop-color="#3283a8" />
+                    <stop offset="0%" stop-opacity="0" />
+                    <stop offset="100%" stop-opacity="0" />
+                </linearGradient>
+                <g id="speedometer" transform="translate(-14.724 16)">
+                    <g id="speed">
+                      <path id="speed-horizontal" d="M345.138-1,326.1,21.689s-1.066.909-1.528,1.245a10.866,10.866,0,0,1-1.6.769l-185.119-.061a12.782,12.782,0,0,0-1.324.143c-.208.068-15.232-22-15.261-21.947,0,.009,2.392-1.216,2.512-1.294C125-.13,125.558-.37,125.524-.389A27.707,27.707,0,0,1,128.995-1C130.155-.988,345.138-1,345.138-1Z" transform="translate(8 24)" fill="url(#lgh-speed)"/>
+                      <path id="speed-vertical" d="M140.789,36.719a12.746,12.746,0,0,0-2.441.9,19.989,19.989,0,0,0-2.534,1.568l-3.892,3.834c-.137-.039-6.054,7.513-6.054,7.513.1.043-70.838,98.457-70.867,98.468H26c.049-.1,94.722-128.886,94.722-128.886a22.756,22.756,0,0,1,2.639-3.457,24.543,24.543,0,0,1,1.945-1.827Z" transform="translate(4 11)" fill="url(#lgv-speed)"/>
+                    </g>
+                    <g id="acceleration" transform="translate(-2 -1)">
+                      <path id="acceleration-horizontal" d="M348.409,9.217l7.763,11.94v.76l-219.428.116a14.326,14.326,0,0,0-2.977.545c-.007.009-1.185.413-1.565.627s-2.213,1.579-2.213,1.579-6.541-7.5-6.389-7.578a42.778,42.778,0,0,1,4.578-2.649,55.437,55.437,0,0,1,6.263-1.532l2.3-.087H289.467l-1.436-2.349Z" fill="url(#lgh-acceleration)"/>
+                      <path id="acceleration-vertical" d="M130,24.784s-1.84,1.467-1.84,1.467a23.72,23.72,0,0,0-4.148,4.6c.1.043-95.081,128.4-95.079,128.456L24.375,148.95c.049-.1,96.313-128.471,96.313-128.471s2.8-3.552,3.114-3.356C123.822,17.1,129.984,24.783,130,24.784Z" fill="url(#lgv-acceleration)"/>
+                    </g>
+                    <g id="digits" transform="translate(-2 -1)">
+                      <text id="_1" data-name="1" transform="translate(36 102)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">1</tspan></text>
+                      <text id="_2" data-name="2" transform="translate(65 64)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">2</tspan></text>
+                      <text id="_3_" data-name="3
+                " transform="translate(93 27)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">3</tspan><tspan x="0" y="25"></tspan></text>
+                      <text id="_4" data-name="4" transform="translate(146 4)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">4</tspan></text>
+                      <text id="_5" data-name="5" transform="translate(197 4)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">5</tspan></text>
+                      <text id="_6" data-name="6" transform="translate(245 4)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">6</tspan></text>
+                      <text id="_7" data-name="7" transform="translate(292 4)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">7</tspan></text>
+                      <text id="_8" data-name="8" transform="translate(335 4)" fill="#fff" font-size="20" font-family="RussoOne-Regular, Russo One"><tspan x="0" y="0">8</tspan></text>
+                    </g>
+                    <g id="kmh" transform="translate(-11 -3)">
+                      <text id="kmh-digits" transform="translate(162 64)" fill="#fff" font-size="48" font-family="RussoOne-Regular, Russo One" letter-spacing="0.1em" x="53" y="25" text-anchor="middle" alignment-baseline="central">220</text>
+                      <text id="kmh-label" transform="translate(162 114)" fill="#fff" font-size="15" font-family="RussoOne-Regular, Russo One"><tspan x="34.313" y="14">km/h</tspan></text>
+                    </g>
+                    <g id="outline">
+                      <path id="_7-2" data-name="7" d="M256.679,9.844h34.5c.054-.021-.019,2.152,0,2.186h-34.5Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_6-2" data-name="6" d="M252.111,7.089h2.967v5.1H208.543V9.917l43.568,0Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_5-2" data-name="5" d="M204.172,7.967h2.781v4.277H157.167V9.967h47Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_4-2" data-name="4" d="M153.375,8.24s2.313-.026,2.266,0c0-.055-.048,3.956,0,3.961l-21.34-.068-3.252.814-1.856.561-2.44.916c-.013.005-2.038,1.041-2.038,1.041.038.042-1.876,1.439-1.876,1.439l-2.022,2.278-9.452,12.636-1.432-1.032,10.575-14.478,2.561-1.979,2.346-1.381c-.005-.02,2.276-1.093,2.264-1.082.019-.01,2.684-.739,2.684-.739l3.939-.844c.014,0,2.606,0,2.606,0l16.468.068Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_3" data-name="3" d="M105.9,32.511c.135-.116,1.058-1.553,1.111-1.467l3.05,2.254L83.579,69.164c0,.008-1.541-1.119-1.571-1.108l25.617-34.389A8.572,8.572,0,0,0,105.9,32.511Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_2-2" data-name="2" d="M53.284,107.938c.006.027-2.055-1.58-2.061-1.572L79.381,69.7s-1.588-1.1-1.582-1.11,1.1-1.265,1.1-1.265c.022.067,3.295,2.411,3.264,2.375C82.14,69.811,53.3,107.968,53.284,107.938Z" transform="translate(-3 -2)" fill="#fff"/>
+                      <path id="_1-2" data-name="1" d="M27.669,138.9l20.917-28.562-2.124-1.478L47.71,107.2c.083.038,4.24,3.053,4.214,3.133L29.677,140.323Z" transform="translate(-3 -3)" fill="#fff"/>
+                      <path id="_0" data-name="0" d="M59.831,161,122,73.5s11.645-16.01,11.625-16.009,4.406-5.327,4.313-5.417a27.83,27.83,0,0,1,3.757-2.883A35.592,35.592,0,0,1,146.154,48H331.032c3.662-.978,5.793-6.137,23.468-27h2.68L334.5,49l-2,1h-58l-127.675-.462-3.778,1.174s-.755.568-2.832,2.438S61,163,61,163H21.5L19,160.5l-6.276-13.871,7.361-9.572-2.113-1.63,1.028-1.1,3.857,2.727-5.911,8.394L23.544,161Z" transform="translate(2 2)" fill="#fff"/>
+                      <path id="_8-inner" data-name="8-inner" d="M5124.038-2975.61c.071-.094,61.1-.658,61.143-.665l8.557,11.77H5133.28Z" transform="translate(-4838.643 2984.894)" fill="rgba(255, 255, 255, 0.7)"/>
+                      <path id="_8-2" data-name="8" d="M5119.439-2980.228c.053,0,65.329,0,65.329,0L5195.706-2966h-64.8l-11.471-14.228,3.837,3.3s8.387,9.979,8.309,9.928,59.355,0,59.355,0l-7.866-9.928h-59.8Z" transform="translate(-4837 2987)" fill="#3283a8"/>
+                    </g>
+                    <g id="signals" transform="translate(-5027.127 3069.269)">
+                      <path id="turn-right" d="M.863,19.272h9.558v7.835c0,.359.356.5.534.287L24.373,13.809a.458.458,0,0,0,0-.647L10.955.582c-.237-.216-.534,0-.534.359V8.705H.863a.43.43,0,0,0-.356.431v9.776A.417.417,0,0,0,.863,19.272Z" transform="translate(5272.664 -2922.573)" fill="none" stroke="rgba(255,255,255,0.75)" stroke-miterlimit="10" stroke-width="2"/>
+                      <path id="turn-left" d="M24.137,19.272H14.579v7.835c0,.359-.356.5-.534.287L.627,13.809a.458.458,0,0,1,0-.647L14.045.582c.237-.216.534,0,.534.359V8.705h9.558a.43.43,0,0,1,.356.431v9.776A.417.417,0,0,1,24.137,19.272Z" transform="translate(5166.809 -2922.564)" fill="none" stroke="rgba(255,255,255,0.75)" stroke-miterlimit="10" stroke-width="2"/>
+                      <path id="fuel" d="M13.834,5.345V1.151a.373.373,0,0,0-.728,0v.8a4.184,4.184,0,0,1-1.068,2.107.262.262,0,0,0-.1.215v.6a.343.343,0,0,0,.364.293h.8v.41a.343.343,0,0,0,.364.293.751.751,0,0,1,.825.663v5.442a.751.751,0,0,1-.825.663.751.751,0,0,1-.825-.663V10.26a.343.343,0,0,0-.364-.293h-.752V5.54a.854.854,0,0,0-.34-.644V1.131A1.293,1.293,0,0,0,9.781,0H2.548A1.293,1.293,0,0,0,1.141,1.131V4.9A.784.784,0,0,0,.8,5.54v8.875H.364a.3.3,0,1,0,0,.585H11.941a.3.3,0,1,0,0-.585H11.5V10.572h.388V12a1.436,1.436,0,0,0,1.553,1.248A1.436,1.436,0,0,0,15,12V6.554A1.282,1.282,0,0,0,13.834,5.345ZM2.548.975H9.781a.192.192,0,0,1,.194.156V4.662H2.354V1.131A.192.192,0,0,1,2.548.975Z" transform="translate(5225.456 -2915.199)" fill="rgba(255,255,255,0.75)"/>
+                      <g id="fuel-circle" transform="translate(5215.127 -2925.269)" fill="none" stroke="rgba(178,0,184,0.75)" stroke-width="2">
+                        <!-- <circle cx="17.5" cy="17.5" r="17.5" stroke="rgba(255,255,255,0.75)"/> -->
+                        <circle id="fuel-circle-progress" cx="17.5" cy="17.5" r="17.5"/>
+                      </g>
+                    </g>
+                  </g>
+            </svg>
+        </div>
+    </body>
+</html>

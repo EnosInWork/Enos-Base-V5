@@ -1,0 +1,73 @@
+@-webkit-keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#speedo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+    width: 9%;
+}
+
+.progress {
+    -webkit-transition: 0.35s fill;
+    -o-transition: 0.35s fill;
+    transition: 0.35s fill;
+}
+
+.active {
+    stroke: #E28B00;
+}
+
+#fuel.danger {
+    fill: #5504a0;
+}
+
+#fuel.full {
+    fill: green;
+}
+
+#fuel.warning  {
+    fill: #E20000;
+}
+
+#fuel-circle-progress.full {
+    stroke: green;
+}
+
+
+#fuel-circle-progress.danger {
+    stroke: #5504a0;
+}
+
+
+#fuel-circle-progress.warning {
+    stroke: #E28B00;
+}
+
+#fuel-circle-progress {
+    stroke-dasharray: 110;
+    stroke-linecap: round;
+}

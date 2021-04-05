@@ -1536,7 +1536,7 @@ CREATE TABLE `users` (
   `job2` varchar(255) COLLATE utf8mb4_bin DEFAULT 'unemployed2',
   `job2_grade` int(11) DEFAULT 0,
   `loadout` longtext COLLATE utf8mb4_bin DEFAULT NULL,
-  `position` varchar(36) COLLATE utf8mb4_bin DEFAULT NULL,
+  `position` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `bank` int(11) DEFAULT NULL,
   `permission_level` int(11) DEFAULT NULL,
   `group` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,

@@ -6,8 +6,8 @@ TriggerEvent('esx_phone:registerNumber', 'famillies', 'alerte famillies', true, 
 
 TriggerEvent('esx_society:registerSociety', 'famillies', 'famillies', 'society_famillies', 'society_famillies', 'society_famillies', {type = 'public'})
 
-RegisterServerEvent('esx_familiesjob:prendreitems')
-AddEventHandler('esx_familiesjob:prendreitems', function(itemName, count)
+RegisterServerEvent('esx_familliesjob:prendreitems')
+AddEventHandler('esx_familliesjob:prendreitems', function(itemName, count)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local sourceItem = xPlayer.getInventoryItem(itemName)
@@ -33,8 +33,8 @@ AddEventHandler('esx_familiesjob:prendreitems', function(itemName, count)
 end)
 
 
-RegisterNetEvent('esx_familiesjob:stockitem')
-AddEventHandler('esx_familiesjob:stockitem', function(itemName, count)
+RegisterNetEvent('esx_familliesjob:stockitem')
+AddEventHandler('esx_familliesjob:stockitem', function(itemName, count)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
     local sourceItem = xPlayer.getInventoryItem(itemName)
@@ -54,20 +54,20 @@ AddEventHandler('esx_familiesjob:stockitem', function(itemName, count)
 end)
 
 
-ESX.RegisterServerCallback('esx_familiesjob:inventairejoueur', function(source, cb)
+ESX.RegisterServerCallback('esx_familliesjob:inventairejoueur', function(source, cb)
     local xPlayer = ESX.GetPlayerFromId(source)
     local items   = xPlayer.inventory
 
     cb({items = items})
 end)
 
-ESX.RegisterServerCallback('esx_familiesjob:prendreitem', function(source, cb)
+ESX.RegisterServerCallback('esx_familliesjob:prendreitem', function(source, cb)
     TriggerEvent('esx_addoninventory:getSharedInventory', 'society_famillies', function(inventory)
         cb(inventory.items)
     end)
 end)
 
-ESX.RegisterServerCallback('esx_familiesjob:getArmoryWeapons', function(source, cb)
+ESX.RegisterServerCallback('esx_familliesjob:getArmoryWeapons', function(source, cb)
 	TriggerEvent('esx_datastore:getSharedDataStore', 'society_famillies', function(store)
 		local weapons = store.get('weapons')
 
@@ -79,7 +79,7 @@ ESX.RegisterServerCallback('esx_familiesjob:getArmoryWeapons', function(source, 
 	end)
 end)
 
-ESX.RegisterServerCallback('esx_familiesjob:addArmoryWeapon', function(source, cb, weaponName, removeWeapon)
+ESX.RegisterServerCallback('esx_familliesjob:addArmoryWeapon', function(source, cb, weaponName, removeWeapon)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	if removeWeapon then
@@ -110,7 +110,7 @@ ESX.RegisterServerCallback('esx_familiesjob:addArmoryWeapon', function(source, c
 	end)
 end)
 
-ESX.RegisterServerCallback('esx_familiesjob:removeArmoryWeapon', function(source, cb, weaponName)
+ESX.RegisterServerCallback('esx_familliesjob:removeArmoryWeapon', function(source, cb, weaponName)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.addWeapon(weaponName, 500)
 
@@ -139,34 +139,36 @@ ESX.RegisterServerCallback('esx_familiesjob:removeArmoryWeapon', function(source
 	end)
 end)
 
+----------------------------------
+
 ------------------------------------------------ Intéraction
 
 
-RegisterServerEvent('esx_familiesjob:handcuff')
-AddEventHandler('esx_familiesjob:handcuff', function(target)
-  TriggerClientEvent('esx_familiesjob:handcuff', target)
+RegisterServerEvent('esx_familliesjob:handcuff')
+AddEventHandler('esx_familliesjob:handcuff', function(target)
+  TriggerClientEvent('esx_familliesjob:handcuff', target)
 end)
 
-RegisterServerEvent('esx_familiesjob:drag')
-AddEventHandler('esx_familiesjob:drag', function(target)
+RegisterServerEvent('esx_familliesjob:drag')
+AddEventHandler('esx_familliesjob:drag', function(target)
   local _source = source
-  TriggerClientEvent('esx_familiesjob:drag', target, _source)
+  TriggerClientEvent('esx_familliesjob:drag', target, _source)
 end)
 
-RegisterServerEvent('esx_familiesjob:putInVehicle')
-AddEventHandler('esx_familiesjob:putInVehicle', function(target)
-  TriggerClientEvent('esx_familiesjob:putInVehicle', target)
+RegisterServerEvent('esx_familliesjob:putInVehicle')
+AddEventHandler('esx_familliesjob:putInVehicle', function(target)
+  TriggerClientEvent('esx_familliesjob:putInVehicle', target)
 end)
 
-RegisterServerEvent('esx_familiesjob:OutVehicle')
-AddEventHandler('esx_familiesjob:OutVehicle', function(target)
-    TriggerClientEvent('esx_familiesjob:OutVehicle', target)
+RegisterServerEvent('esx_familliesjob:OutVehicle')
+AddEventHandler('esx_familliesjob:OutVehicle', function(target)
+    TriggerClientEvent('esx_familliesjob:OutVehicle', target)
 end)
 
 -------------------------------- Fouiller
 
-RegisterNetEvent('esx_familiesjob:confiscatePlayerItem')
-AddEventHandler('esx_familiesjob:confiscatePlayerItem', function(target, itemType, itemName, amount)
+RegisterNetEvent('esx_familliesjob:confiscatePlayerItem')
+AddEventHandler('esx_familliesjob:confiscatePlayerItem', function(target, itemType, itemName, amount)
 	local _source = source
 	local sourceXPlayer = ESX.GetPlayerFromId(_source)
 	local targetXPlayer = ESX.GetPlayerFromId(target)
@@ -221,7 +223,7 @@ AddEventHandler('esx_familiesjob:confiscatePlayerItem', function(target, itemTyp
 	end
 end)
 
-ESX.RegisterServerCallback('esx_familiesjob:getOtherPlayerData', function(source, cb, target, notify)
+ESX.RegisterServerCallback('esx_familliesjob:getOtherPlayerData', function(source, cb, target, notify)
 	local xPlayer = ESX.GetPlayerFromId(target)
 
 	if notify then

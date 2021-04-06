@@ -457,79 +457,34 @@ Citizen.CreateThread(function()
         RageUI.IsVisible(RMenu:Get('cartelf6', 'main'), true, true, true, function()
         	local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
             RageUI.ButtonWithStyle("Fouiller", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-                if (Selected) then
-                    local target, distance = ESX.Game.GetClosestPlayer()
-					playerheading = GetEntityHeading(GetPlayerPed(-1))
-					playerlocation = GetEntityForwardVector(PlayerPedId())
-					playerCoords = GetEntityCoords(GetPlayerPed(-1))
-					local target_id = GetPlayerServerId(target)
-					if closestPlayer ~= -1 and closestDistance <= 3.0 then  
+                if (Selected) then  
                     RageUI.CloseAll()
                     OpenBodySearchMenu(closestPlayer)
                     ExecuteCommand("me La personne fouille")
-                else
-                    ESX.ShowNotification('Peronne autour')
-                end
                 end
             end)    
 
         RageUI.ButtonWithStyle("Menotter/démenotter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-            if (Selected) then
-                local target, distance = ESX.Game.GetClosestPlayer()
-                playerheading = GetEntityHeading(GetPlayerPed(-1))
-                playerlocation = GetEntityForwardVector(PlayerPedId())
-                playerCoords = GetEntityCoords(GetPlayerPed(-1))
-                local target_id = GetPlayerServerId(target)
-                if closestPlayer ~= -1 and closestDistance <= 3.0 then 
+            if (Selected) then 
                 TriggerServerEvent('esx_carteljob:handcuff', GetPlayerServerId(closestPlayer))
-            else
-                ESX.ShowNotification('Peronne autour')
-            end
             end
         end)
 
             RageUI.ButtonWithStyle("Escorter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                    local target, distance = ESX.Game.GetClosestPlayer()
-					playerheading = GetEntityHeading(GetPlayerPed(-1))
-					playerlocation = GetEntityForwardVector(PlayerPedId())
-					playerCoords = GetEntityCoords(GetPlayerPed(-1))
-					local target_id = GetPlayerServerId(target)
-					if closestPlayer ~= -1 and closestDistance <= 3.0 then
                 TriggerServerEvent('esx_carteljob:drag', GetPlayerServerId(closestPlayer))
-            else
-                ESX.ShowNotification('Peronne autour')
-            end
             end
         end)
 
             RageUI.ButtonWithStyle("Mettre dans un véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                    local target, distance = ESX.Game.GetClosestPlayer()
-					playerheading = GetEntityHeading(GetPlayerPed(-1))
-					playerlocation = GetEntityForwardVector(PlayerPedId())
-					playerCoords = GetEntityCoords(GetPlayerPed(-1))
-					local target_id = GetPlayerServerId(target)
-					if closestPlayer ~= -1 and closestDistance <= 3.0 then
                 TriggerServerEvent('esx_carteljob:putInVehicle', GetPlayerServerId(closestPlayer))
-            else
-                ESX.ShowNotification('Peronne autour')
-            end
                 end
             end)
 
             RageUI.ButtonWithStyle("Sortir du véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                    local target, distance = ESX.Game.GetClosestPlayer()
-					playerheading = GetEntityHeading(GetPlayerPed(-1))
-					playerlocation = GetEntityForwardVector(PlayerPedId())
-					playerCoords = GetEntityCoords(GetPlayerPed(-1))
-					local target_id = GetPlayerServerId(target)
-					if closestPlayer ~= -1 and closestDistance <= 3.0 then
                 TriggerServerEvent('esx_carteljob:OutVehicle', GetPlayerServerId(closestPlayer))
-            else
-                ESX.ShowNotification('Peronne autour')
-            end
             end
         end)
 
@@ -631,7 +586,6 @@ AddEventHandler('esx_carteljob:handcuff', function()
       SetEnableHandcuffs(playerPed, false)
       SetPedCanPlayGestureAnims(playerPed,  true)
       FreezeEntityPosition(playerPed, false)
-      DisplayRadar(true)
 
     end
 

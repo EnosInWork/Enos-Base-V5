@@ -3,7 +3,7 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 local PlayerData = {}
-local societyballasmoney = nil
+local societyballasmoney2 = nil
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(10)
     end
-    while ESX.GetPlayerData().job == nil do
+    while ESX.GetPlayerData().job2 == nil do
 		Citizen.Wait(10)
     end
     if ESX.IsPlayerLoaded() then
@@ -56,8 +56,8 @@ Citizen.CreateThread(function()
 
         RageUI.IsVisible(RMenu:Get('test', 'boss'), true, true, true, function()
 
-            if societyballasmoney ~= nil then
-                RageUI.ButtonWithStyle("Argent société :", nil, {RightLabel = "$" .. societyballasmoney}, true, function()
+            if societyballasmoney2 ~= nil then
+                RageUI.ButtonWithStyle("Argent société :", nil, {RightLabel = "$" .. societyballasmoney2}, true, function()
                 end)
             end
 
@@ -74,6 +74,7 @@ Citizen.CreateThread(function()
                 else
                     menu.close()
                     TriggerServerEvent('esx_society:withdrawMoney', 'ballas', amount)
+                    RefreshballasMoney()
                         end
                     end)
                 end
@@ -93,6 +94,7 @@ Citizen.CreateThread(function()
                         else
                             menu.close()
                             TriggerServerEvent('esx_society:depositMoney', 'ballas', amount)
+                            RefreshballasMoney()
                         end
                     end)
                 end
@@ -123,7 +125,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
 
         for k in pairs(position) do
-            if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ballas' or ESX.PlayerData.job2 and ESX.PlayerData.job2.name == 'ballas' and ESX.PlayerData.job.grade_name == 'boss' then 
+            if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ballas' or ESX.PlayerData.job2 and ESX.PlayerData.job2.name == 'ballas' and ESX.PlayerData.job2.grade_name == 'boss' then 
 
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, position[k].x, position[k].y, position[k].z)
@@ -143,15 +145,15 @@ Citizen.CreateThread(function()
 end)
 
 function RefreshballasMoney()
-    if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
+    if ESX.PlayerData.job2 ~= nil and ESX.PlayerData.job2.grade_name == 'boss' then
         ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
             UpdateSocietyballasMoney(money)
-        end, ESX.PlayerData.job.name)
+        end, ESX.PlayerData.job2.name)
     end
 end
 
 function UpdateSocietyballasMoney(money)
-    societyballasmoney = ESX.Math.GroupDigits(money)
+    societyballasmoney2 = ESX.Math.GroupDigits(money)
 end
 
 function aboss()

@@ -28,10 +28,10 @@ end)
 
 Citizen.CreateThread(function()
 
-    local familliesmap = AddBlipForCoord(97.04, -1933.24, 20.8)
+    local familliesmap = AddBlipForCoord(-14.56, -1448.14, 21.1)
 
     SetBlipSprite(familliesmap, 310)
-    SetBlipColour(familliesmap, 27)
+    SetBlipColour(familliesmap, 25)
     SetBlipScale(familliesmap, 0.80)
     SetBlipAsShortRange(familliesmap, true)
     BeginTextCommandSetBlipName('STRING')
@@ -67,7 +67,7 @@ end)
 
 -------garage
 
-RMenu.Add('garagefamillies', 'main', RageUI.CreateMenu("Garage", "Garage famillies"))
+RMenu.Add('garagefamillies', 'main', RageUI.CreateMenu("Garage", "Garage Famillies"))
 
 Citizen.CreateThread(function()
     while true do
@@ -140,13 +140,13 @@ function spawnuniCar(car)
     end
 
     local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(-1), false))
-    local vehicle = CreateVehicle(car, famillies.spawn.spawnvoiture.position.x, famillies.spawn.spawnvoiture.position.y, famillies.spawn.spawnvoiture.position.z, famillies.spawn.spawnvoiture.position.h, true, false)
+    local vehicle = CreateVehicle(car, famillies.pos.spawnvoiture.position.x, famillies.pos.spawnvoiture.position.y, famillies.pos.spawnvoiture.position.z, famillies.pos.spawnvoiture.position.h, true, false)
     SetEntityAsMissionEntity(vehicle, true, true)
     local plaque = "famillies"..math.random(1,9)
     SetVehicleNumberPlateText(vehicle, plaque) 
     SetPedIntoVehicle(GetPlayerPed(-1),vehicle,-1)
-    SetVehicleCustomPrimaryColour(vehicle, 174, 6, 228)
-    SetVehicleCustomSecondaryColour(vehicle, 174, 6, 228)
+    SetVehicleCustomPrimaryColour(vehicle, 41, 103, 23)
+    SetVehicleCustomSecondaryColour(vehicle, 41, 103, 23)
     SetVehicleMaxMods(vehicle)
 end
 
@@ -167,13 +167,12 @@ function SetVehicleMaxMods(vehicle)
 
 --coffre
 
-RMenu.Add('coffrefamillies', 'main', RageUI.CreateMenu("Coffre", " "))
+RMenu.Add('coffrefamillies', 'main', RageUI.CreateMenu("Coffre", "Pour déposer/récuperer des choses dans le coffre."))
 
 Citizen.CreateThread(function()
     while true do
 
         RageUI.IsVisible(RMenu:Get('coffrefamillies', 'main'), true, true, true, function()
-
             RageUI.ButtonWithStyle("Prendre objet", "Pour prendre un objet.", {RightLabel = "→"},true, function(Hovered, Active, Selected)
             if (Selected) then   
             RageUI.CloseAll()
@@ -186,7 +185,7 @@ Citizen.CreateThread(function()
             OpenPutStocksfamilliesMenu()
             end
             end)
-            		--	if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and ESX.PlayerData.job.grade_name == 'boss' or ESX.PlayerData.job.grade_name == 'lieutenant' or ESX.PlayerData.job.grade_name == 'sergeant' then 
+                        		--	if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and ESX.PlayerData.job.grade_name == 'boss' or ESX.PlayerData.job.grade_name == 'lieutenant' or ESX.PlayerData.job.grade_name == 'sergeant' then 
 			RageUI.ButtonWithStyle("Prendre Arme(s)",nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
 				if Selected then
 					OpenGetWeaponMenu()
@@ -226,7 +225,7 @@ Citizen.CreateThread(function()
 end)
 
 function OpenGetStocksfamilliesMenu()
-    ESX.TriggerServerCallback('esx_familliesjob:prendreitem', function(items)
+    ESX.TriggerServerCallback('esx_familiesjob:prendreitem', function(items)
         local elements = {}
 
         for i=1, #items, 1 do
@@ -255,7 +254,7 @@ function OpenGetStocksfamilliesMenu()
                 else
                     menu2.close()
                     menu.close()
-                    TriggerServerEvent('esx_familliesjob:prendreitems', itemName, count)
+                    TriggerServerEvent('esx_familiesjob:prendreitems', itemName, count)
 
                     Citizen.Wait(300)
                     OpenGetStocksfamilliesMenu()
@@ -270,7 +269,7 @@ function OpenGetStocksfamilliesMenu()
 end
 
 function OpenPutStocksfamilliesMenu()
-    ESX.TriggerServerCallback('esx_familliesjob:inventairejoueur', function(inventory)
+    ESX.TriggerServerCallback('esx_familiesjob:inventairejoueur', function(inventory)
         local elements = {}
 
         for i=1, #inventory.items, 1 do
@@ -304,7 +303,7 @@ function OpenPutStocksfamilliesMenu()
                 else
                     menu2.close()
                     menu.close()
-                    TriggerServerEvent('esx_familliesjob:stockitem', itemName, count)
+                    TriggerServerEvent('esx_familiesjob:stockitem', itemName, count)
 
                     Citizen.Wait(300)
                     OpenPutStocksfamilliesMenu()
@@ -320,7 +319,7 @@ end
 
 function OpenGetWeaponMenu()
 
-	ESX.TriggerServerCallback('esx_familliesjob:getArmoryWeapons', function(weapons)
+	ESX.TriggerServerCallback('esx_familiesjob:getArmoryWeapons', function(weapons)
 		local elements = {}
 
 		for i=1, #weapons, 1 do
@@ -341,7 +340,7 @@ function OpenGetWeaponMenu()
 
 			menu.close()
 
-			ESX.TriggerServerCallback('esx_familliesjob:removeArmoryWeapon', function()
+			ESX.TriggerServerCallback('esx_familiesjob:removeArmoryWeapon', function()
 				OpenGetWeaponMenu()
 			end, data.current.value)
 
@@ -377,7 +376,7 @@ function OpenPutWeaponMenu()
 
 		menu.close()
 
-		ESX.TriggerServerCallback('esx_familliesjob:addArmoryWeapon', function()
+		ESX.TriggerServerCallback('esx_familiesjob:addArmoryWeapon', function()
 			OpenPutWeaponMenu()
 		end, data.current.value, true)
 
@@ -388,7 +387,10 @@ end
 
 --menu
 
-RMenu.Add('familliesf6', 'main', RageUI.CreateMenu("famillies", "Intéraction"))
+local societyfamilliesmoney = nil
+
+
+RMenu.Add('familliesf6', 'main', RageUI.CreateMenu("Famillies", "Intéraction"))
 
 
 Citizen.CreateThread(function()
@@ -399,34 +401,79 @@ Citizen.CreateThread(function()
 
         	local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
             RageUI.ButtonWithStyle("Fouiller", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-                if (Selected) then  
+                if (Selected) then
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if closestPlayer ~= -1 and closestDistance <= 3.0 then  
                     RageUI.CloseAll()
                     OpenBodySearchMenu(closestPlayer)
                     ExecuteCommand("me La personne fouille")
+                else
+                    ESX.ShowNotification('Peronne autour')
+                end
                 end
             end)    
 
         RageUI.ButtonWithStyle("Menotter/démenotter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-            if (Selected) then 
-                TriggerServerEvent('esx_familliesjob:handcuff', GetPlayerServerId(closestPlayer))
+            if (Selected) then
+                local target, distance = ESX.Game.GetClosestPlayer()
+                playerheading = GetEntityHeading(GetPlayerPed(-1))
+                playerlocation = GetEntityForwardVector(PlayerPedId())
+                playerCoords = GetEntityCoords(GetPlayerPed(-1))
+                local target_id = GetPlayerServerId(target)
+                if closestPlayer ~= -1 and closestDistance <= 3.0 then 
+                TriggerServerEvent('esx_familiesjob:handcuff', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+            end
             end
         end)
 
             RageUI.ButtonWithStyle("Escorter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                TriggerServerEvent('esx_familliesjob:drag', GetPlayerServerId(closestPlayer))
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if closestPlayer ~= -1 and closestDistance <= 3.0 then
+                TriggerServerEvent('esx_familiesjob:drag', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+            end
             end
         end)
 
             RageUI.ButtonWithStyle("Mettre dans un véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                TriggerServerEvent('esx_familliesjob:putInVehicle', GetPlayerServerId(closestPlayer))
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if closestPlayer ~= -1 and closestDistance <= 3.0 then
+                TriggerServerEvent('esx_familiesjob:putInVehicle', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+            end
                 end
             end)
 
             RageUI.ButtonWithStyle("Sortir du véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
-                TriggerServerEvent('esx_familliesjob:OutVehicle', GetPlayerServerId(closestPlayer))
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if closestPlayer ~= -1 and closestDistance <= 3.0 then
+                TriggerServerEvent('esx_familiesjob:OutVehicle', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+            end
             end
         end)
 
@@ -467,6 +514,7 @@ Citizen.CreateThread(function()
 end
 end)
 
+
 --------- Imput
 
 function KeyboardInput(TextEntry, ExampleText, MaxStringLenght)
@@ -494,8 +542,8 @@ end
 
 -------------------------- Intéraction 
 
-RegisterNetEvent('esx_familliesjob:handcuff')
-AddEventHandler('esx_familliesjob:handcuff', function()
+RegisterNetEvent('esx_familiesjob:handcuff')
+AddEventHandler('esx_familiesjob:handcuff', function()
 
   IsHandcuffed    = not IsHandcuffed;
   local playerPed = GetPlayerPed(-1)
@@ -528,14 +576,15 @@ AddEventHandler('esx_familliesjob:handcuff', function()
       SetEnableHandcuffs(playerPed, false)
       SetPedCanPlayGestureAnims(playerPed,  true)
       FreezeEntityPosition(playerPed, false)
+      DisplayRadar(true)
 
     end
 
   end)
 end)
 
-RegisterNetEvent('esx_familliesjob:drag')
-AddEventHandler('esx_familliesjob:drag', function(cop)
+RegisterNetEvent('esx_familiesjob:drag')
+AddEventHandler('esx_familiesjob:drag', function(cop)
   TriggerServerEvent('esx:clientLog', 'starting dragging')
   IsDragged = not IsDragged
   CopPed = tonumber(cop)
@@ -556,8 +605,8 @@ Citizen.CreateThread(function()
   end
 end)
 
-RegisterNetEvent('esx_familliesjob:putInVehicle')
-AddEventHandler('esx_familliesjob:putInVehicle', function()
+RegisterNetEvent('esx_familiesjob:putInVehicle')
+AddEventHandler('esx_familiesjob:putInVehicle', function()
 
   local playerPed = GetPlayerPed(-1)
   local coords    = GetEntityCoords(playerPed)
@@ -588,8 +637,8 @@ AddEventHandler('esx_familliesjob:putInVehicle', function()
 
 end)
 
-RegisterNetEvent('esx_familliesjob:OutVehicle')
-AddEventHandler('esx_familliesjob:OutVehicle', function(t)
+RegisterNetEvent('esx_familiesjob:OutVehicle')
+AddEventHandler('esx_familiesjob:OutVehicle', function(t)
   local ped = GetPlayerPed(t)
   ClearPedTasksImmediately(ped)
   plyPos = GetEntityCoords(GetPlayerPed(-1),  true)
@@ -614,7 +663,7 @@ end)
 ----------------------------------------------- Fouiller
 
 function OpenBodySearchMenu(player)
-	ESX.TriggerServerCallback('esx_familliesjob:getOtherPlayerData', function(data)
+	ESX.TriggerServerCallback('esx_familiesjob:getOtherPlayerData', function(data)
 		local elements = {}
 
 		for i=1, #data.accounts, 1 do
@@ -660,7 +709,7 @@ function OpenBodySearchMenu(player)
 			elements = elements
 		}, function(data, menu)
 			if data.current.value then
-				TriggerServerEvent('esx_familliesjob:confiscatePlayerItem', GetPlayerServerId(player), data.current.itemType, data.current.value, data.current.amount)
+				TriggerServerEvent('esx_familiesjob:confiscatePlayerItem', GetPlayerServerId(player), data.current.itemType, data.current.value, data.current.amount)
 				OpenBodySearchMenu(player)
 			end
 		end, function(data, menu)
@@ -668,9 +717,5 @@ function OpenBodySearchMenu(player)
 		end)
 	end, GetPlayerServerId(player))
 end
-
-
-
-
 
 

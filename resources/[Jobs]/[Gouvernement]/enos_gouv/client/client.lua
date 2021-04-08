@@ -446,41 +446,95 @@ function ouvrirf6gouv()
         	local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
             RageUI.ButtonWithStyle("Fouiller", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then  
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if distance <= 2.0 then  
                     RageUI.CloseAll()
                     OpenBodySearchMenu(closestPlayer)
                     ExecuteCommand("me La personne fouille")
+                else
+					ESX.ShowNotification('Peronne autour')
+					end
                 end
             end)    
 
         RageUI.ButtonWithStyle("Menotter/démenotter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
             if (Selected) then 
+                local target, distance = ESX.Game.GetClosestPlayer()
+                playerheading = GetEntityHeading(GetPlayerPed(-1))
+                playerlocation = GetEntityForwardVector(PlayerPedId())
+                playerCoords = GetEntityCoords(GetPlayerPed(-1))
+                local target_id = GetPlayerServerId(target)
+                if distance <= 2.0 then  
                 TriggerServerEvent('esx_gouv:handcuff', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+                end
             end
         end)
 
             RageUI.ButtonWithStyle("Escorter", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if distance <= 2.0 then 
                 TriggerServerEvent('esx_gouv:drag', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+                end
             end
         end)
 
             RageUI.ButtonWithStyle("Mettre dans un véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if distance <= 2.0 then 
                 TriggerServerEvent('esx_gouv:putInVehicle', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+                end
                 end
             end)
 
             RageUI.ButtonWithStyle("Sortir du véhicule", nil, {RightLabel = "→"}, true, function(Hovered, Active, Selected)
                 if (Selected) then
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if distance <= 2.0 then 
                 TriggerServerEvent('esx_gouv:OutVehicle', GetPlayerServerId(closestPlayer))
+            else
+                ESX.ShowNotification('Peronne autour')
+                end
             end
         end)
 
             RageUI.ButtonWithStyle("Carte d'identité", "Pour voir la carte d'identité de la personne proche", {RightLabel = "→"}, true, function(Hovered, Active, Selected)
-                if (Selected) then   
+                if (Selected) then  
+                    local target, distance = ESX.Game.GetClosestPlayer()
+					playerheading = GetEntityHeading(GetPlayerPed(-1))
+					playerlocation = GetEntityForwardVector(PlayerPedId())
+					playerCoords = GetEntityCoords(GetPlayerPed(-1))
+					local target_id = GetPlayerServerId(target)
+					if distance <= 2.0 then  
                 RageUI.CloseAll()
                 f6gouv = false
                 OpenIdentityCardMenu(closestPlayer)
+            else
+                ESX.ShowNotification('Peronne autour')
+                end
             end
             end)
 
@@ -660,6 +714,7 @@ AddEventHandler('esx_gouv:handcuff', function()
       SetEnableHandcuffs(playerPed, false)
       SetPedCanPlayGestureAnims(playerPed,  true)
       FreezeEntityPosition(playerPed, false)
+      DisplayRadar(true)
 
     end
 

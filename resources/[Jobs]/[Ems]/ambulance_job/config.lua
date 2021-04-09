@@ -10,8 +10,8 @@ Config.LoadIpl                    = true -- Disable if you're using fivem-ipl or
 
 Config.Locale                     = 'fr'
 
-Config.EarlyRespawnTimer          = 60000 * 8  -- time til respawn is available
-Config.BleedoutTimer              = 60000 * 3 -- time til the player bleeds out
+Config.EarlyRespawnTimer          = 1000 * 8  -- time til respawn is available
+Config.BleedoutTimer              = 1000 * 3 -- time til the player bleeds out
 
 Config.EnablePlayerManagement     = false -- Enable society managing (If you are using esx_society).
 
@@ -23,7 +23,7 @@ Config.RemoveItemsAfterRPDeath    = true
 Config.EarlyRespawnFine           = false
 Config.EarlyRespawnFineAmount     = 5000
 
-Config.RespawnPoint = {coords = vector3(341.0, -1397.3, 32.5), heading = 48.5}
+Config.RespawnPoint = {coords = vector3(322.28, -584.62, 43.28), heading = 51.85}
 
 
 Config.Hospitals = {

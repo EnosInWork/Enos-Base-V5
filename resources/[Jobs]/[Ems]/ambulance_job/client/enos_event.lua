@@ -226,53 +226,26 @@ function StartDeathTimer()
 end
 
 function RemoveItemsAfterRPDeath()
-	--Nombreinter = Nombreinter - 1
-	local playerPed = PlayerPedId()
-	local coords = GetEntityCoords(playerPed)
-	TriggerServerEvent('esx_ambulancejob:setDeathStatus', false)
+    TriggerServerEvent('esx_ambulancejob:setDeathStatus', false)
 
-	Citizen.CreateThread(function()
-		DoScreenFadeOut(800)
+    Citizen.CreateThread(function()
+        DoScreenFadeOut(800)
 
-		while not IsScreenFadedOut() do
-			Citizen.Wait(10)
-		end
+        while not IsScreenFadedOut() do
+            Citizen.Wait(10)
+        end
 
-		local formattedCoords = {
-			x = ESX.Math.Round(coords.x, 1),
-			y = ESX.Math.Round(coords.y, 1),
-			z = ESX.Math.Round(coords.z, 1)
-		}
+        ESX.TriggerServerCallback('esx_ambulancejob:removeItemsAfterRPDeath', function()
+            ESX.SetPlayerData('lastPosition', Config.RespawnPoint.coords)
+            ESX.SetPlayerData('loadout', {})
 
-		ESX.SetPlayerData('lastPosition', formattedCoords)
+            TriggerServerEvent('esx:updateLastPosition', Config.RespawnPoint.coords)
+            RespawnPed(PlayerPedId(), Config.RespawnPoint.coords, Config.RespawnPoint.heading)
 
-		TriggerServerEvent('esx:updateLastPosition', formattedCoords)
-
-		RespawnPed(playerPed, formattedCoords, 0.0)
-
-		--StopScreenEffect('DeathFailOut')
-		DoScreenFadeIn(800)
-		Citizen.Wait(10)
-		ClearPedTasksImmediately(playerPed)
-		SetTimecycleModifier("spectator5") -- Je sait pas se que ça fait lel
-		SetPedMotionBlur(playerPed, true)
-		RequestAnimSet("move_injured_generic")
-			while not HasAnimSetLoaded("move_injured_generic") do
-				Citizen.Wait(0)
-			end
-		SetPedMovementClipset(playerPed, "move_injured_generic", true)
-		DisplayRadar(true)
-		local ped = GetPlayerPed(PlayerId())
-		local coords = GetEntityCoords(ped, false)
-		local name = GetPlayerName(PlayerId())
-		local x, y, z = table.unpack(GetEntityCoords(ped, true))
-		TriggerServerEvent('esx_ambulance:NotificationBlipsX', x, y, z, name)
-		local playerPed = GetPlayerPed(-1)
-		ClearTimecycleModifier()
-		ResetScenarioTypesEnabled()
-		SetPedMotionBlur(playerPed, false)
-
-	end)
+            StopScreenEffect('DeathFailOut')
+            DoScreenFadeIn(800)
+        end)
+    end)
 end
 
 function Normal()
@@ -327,8 +300,8 @@ end)
 RegisterNetEvent('esx_ambulancejob:revive')
 AddEventHandler('esx_ambulancejob:revive', function()
 	local playerPed = PlayerPedId()
-	local coords	= GetEntityCoords(playerPed)
-	TriggerServerEvent('esx_ambulancejob:setDeathStatus', 0)
+	local coords = GetEntityCoords(playerPed)
+	TriggerServerEvent('esx_ambulancejob:setDeathStatus', false)
 
 	Citizen.CreateThread(function()
 		DoScreenFadeOut(800)
@@ -352,7 +325,8 @@ AddEventHandler('esx_ambulancejob:revive', function()
 		RespawnPed(playerPed, {
 			x = coords.x,
 			y = coords.y,
-			z = coords.z
+			z = coords.z,
+			heading = 0.0
 		})
 
 		StopScreenEffect('DeathFailOut')

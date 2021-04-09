@@ -74,11 +74,14 @@ TriggerEvent('esx_society:registerSociety', 'ambulance', 'Ambulance', 'society_a
 
 RegisterServerEvent('esx_ambulancejob:revive')
 AddEventHandler('esx_ambulancejob:revive', function(target)
-	local _source = source
-	local xPlayer = ESX.GetPlayerFromId(_source)
-	
-	xPlayer.addMoney(Config.ReviveReward)
-	TriggerClientEvent('esx_ambulancejob:revive', target)
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	if xPlayer.job.name == 'ambulance' then
+		xPlayer.addMoney(Config.ReviveReward)
+		TriggerClientEvent('esx_ambulancejob:revive', target)
+	else
+		print(('esx_ambulancejob: %s attempted to revive!'):format(xPlayer.identifier))
+	end
 end)
 
 RegisterNetEvent('esx:onPlayerDeath')

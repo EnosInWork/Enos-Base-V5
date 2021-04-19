@@ -271,12 +271,6 @@ CREATE TABLE `baninfo` (
   `playername` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
---
--- Déchargement des données de la table `baninfo`
---
-
-INSERT INTO `baninfo` (`id`, `license`, `identifier`, `liveid`, `xblid`, `discord`, `playerip`, `playername`) VALUES
-(1, 'license:1dc198bc80a8a6f99c58e103f76a7062361b145c', 'steam:110000112a69b9e', 'live:914802173416211', 'xbl:2535407509013894', 'discord:404389599843188758', 'ip:127.0.0.1', '[Dev] Enøs');
 
 -- --------------------------------------------------------
 
@@ -520,12 +514,6 @@ CREATE TABLE `characters` (
   `height` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `characters`
---
-
-INSERT INTO `characters` (`identifier`, `firstname`, `lastname`, `dateofbirth`, `sex`, `height`) VALUES
-('steam:110000112a69b9e', 'Yanis', 'Breezi', '19841212', 'M', '96');
 
 -- --------------------------------------------------------
 
@@ -1068,14 +1056,7 @@ CREATE TABLE `open_car` (
   `NB` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `open_car`
---
 
-INSERT INTO `open_car` (`id`, `identifier`, `label`, `value`, `got`, `NB`) VALUES
-(48, 'steam:110000112a69b9e', 'Cles', 'EBDP3324', 'true', 1),
-(49, 'steam:110000112a69b9e', 'Cles', 'LTJV5869', 'true', 1),
-(50, 'steam:110000112a69b9e', 'Cles', 'XGKB9928', 'true', 1);
 
 -- --------------------------------------------------------
 
@@ -1107,12 +1088,6 @@ CREATE TABLE `owned_boat` (
   `ownedAt` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `owned_boat`
---
-
-INSERT INTO `owned_boat` (`id`, `license`, `model`, `props`, `outside`, `ownedAt`) VALUES
-(4, 'license:1dc198bc80a8a6f99c58e103f76a7062361b145c', 'seashark3', '{\"modFrontWheels\":-1,\"modRoof\":-1,\"modBackWheels\":-1,\"modPlateHolder\":-1,\"neonColor\":[255,0,255],\"modShifterLeavers\":-1,\"modArchCover\":-1,\"modEngine\":-1,\"modGrille\":-1,\"plate\":\"86FTA471\",\"modArmor\":-1,\"model\":-311022263,\"modDashboard\":-1,\"modStruts\":-1,\"modTank\":-1,\"modHood\":-1,\"modExhaust\":-1,\"neonEnabled\":[false,false,false,false],\"modTurbo\":false,\"modDoorSpeaker\":-1,\"modSeats\":-1,\"modTrunk\":-1,\"wheelColor\":156,\"modFender\":-1,\"pearlescentColor\":0,\"modXenon\":false,\"color2\":132,\"modBrakes\":-1,\"modFrame\":-1,\"modVanityPlate\":-1,\"modSideSkirt\":-1,\"health\":1000,\"tyreSmokeColor\":[255,255,255],\"modSuspension\":-1,\"wheels\":0,\"modFrontBumper\":-1,\"modAPlate\":-1,\"modRightFender\":-1,\"modSmokeEnabled\":false,\"modRearBumper\":-1,\"modTrimA\":-1,\"modWindows\":-1,\"modTrimB\":-1,\"modOrnaments\":-1,\"color1\":111,\"modLivery\":-1,\"modSteeringWheel\":-1,\"modHorns\":-1,\"modEngineBlock\":-1,\"modAerials\":-1,\"dirtLevel\":0.0,\"modAirFilter\":-1,\"modHydrolic\":-1,\"plateIndex\":4,\"modSpeakers\":-1,\"modDial\":-1,\"modSpoilers\":-1,\"extras\":[],\"windowTint\":-1,\"modTransmission\":-1}', 1, '27/3/2021 à 14h28');
 
 -- --------------------------------------------------------
 
@@ -1143,14 +1118,6 @@ CREATE TABLE `owned_vehicles` (
   `stored` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `owned_vehicles`
---
-
-INSERT INTO `owned_vehicles` (`owner`, `plate`, `vehicle`, `type`, `job`, `stored`) VALUES
-('steam:110000112a69b9e', 'EBDP3324', '{\"neonEnabled\":[false,false,false,false],\"modDoorSpeaker\":-1,\"modRearBumper\":-1,\"modBackWheels\":-1,\"neonColor\":[255,0,255],\"tyreSmokeColor\":[255,255,255],\"modSuspension\":-1,\"modXenon\":false,\"pearlescentColor\":18,\"modAPlate\":-1,\"modOrnaments\":-1,\"modTrimB\":-1,\"modEngineBlock\":-1,\"modHood\":-1,\"modPlateHolder\":-1,\"wheels\":0,\"modTurbo\":false,\"modGrille\":-1,\"modSpeakers\":-1,\"modTank\":-1,\"dirtLevel\":4.15194272994995,\"modRoof\":-1,\"modSideSkirt\":-1,\"modWindows\":-1,\"modFrame\":-1,\"modFender\":-1,\"modVanityPlate\":-1,\"modExhaust\":-1,\"extras\":[],\"modShifterLeavers\":-1,\"modSmokeEnabled\":false,\"modSpoilers\":-1,\"modArmor\":-1,\"modTrimA\":-1,\"modFrontBumper\":-1,\"color2\":27,\"modSteeringWheel\":-1,\"modTransmission\":-1,\"windowTint\":-1,\"modDial\":-1,\"health\":999,\"modFrontWheels\":-1,\"modLivery\":-1,\"modAirFilter\":-1,\"modSeats\":-1,\"modRightFender\":-1,\"modBrakes\":-1,\"model\":311019464,\"modDashboard\":-1,\"modHorns\":-1,\"modHydrolic\":-1,\"modTrunk\":-1,\"modEngine\":-1,\"modStruts\":-1,\"plateIndex\":0,\"color1\":1,\"plate\":\"EBDP3324\",\"wheelColor\":112,\"modAerials\":-1,\"modArchCover\":-1}', 'car', NULL, 0),
-('steam:110000112a69b9e', 'LTJV5869', '{\"health\":982,\"modBackWheels\":-1,\"modEngine\":-1,\"modGrille\":-1,\"extras\":[],\"modTrimB\":-1,\"color2\":27,\"modDashboard\":-1,\"modAerials\":-1,\"modOrnaments\":-1,\"modFrontBumper\":-1,\"modStruts\":-1,\"modLivery\":-1,\"modShifterLeavers\":-1,\"modRightFender\":-1,\"modDoorSpeaker\":-1,\"dirtLevel\":7.1545238494873,\"modPlateHolder\":-1,\"pearlescentColor\":18,\"modArchCover\":-1,\"modFender\":-1,\"modSpeakers\":-1,\"model\":311019464,\"modExhaust\":-1,\"wheels\":0,\"modTurbo\":false,\"modSeats\":-1,\"wheelColor\":112,\"plateIndex\":0,\"neonColor\":[255,0,255],\"modTank\":-1,\"modBrakes\":-1,\"modFrame\":-1,\"modSmokeEnabled\":false,\"modTrunk\":-1,\"modEngineBlock\":-1,\"modHydrolic\":-1,\"modWindows\":-1,\"modRearBumper\":-1,\"modTrimA\":-1,\"modDial\":-1,\"modAPlate\":-1,\"modSideSkirt\":-1,\"modVanityPlate\":-1,\"modAirFilter\":-1,\"modHood\":-1,\"modHorns\":-1,\"plate\":\"LTJV5869\",\"neonEnabled\":[false,false,false,false],\"modXenon\":false,\"windowTint\":-1,\"modSteeringWheel\":-1,\"modArmor\":-1,\"modSpoilers\":-1,\"modFrontWheels\":-1,\"modRoof\":-1,\"modSuspension\":-1,\"tyreSmokeColor\":[255,255,255],\"color1\":1,\"modTransmission\":-1}', 'car', NULL, 0),
-('steam:110000112a69b9e', 'XGKB9928', '{\"modFender\":-1,\"modPlateHolder\":-1,\"modSpeakers\":-1,\"tyreSmokeColor\":[255,255,255],\"plate\":\"XGKB9928\",\"model\":311019464,\"modShifterLeavers\":-1,\"modLivery\":-1,\"modSteeringWheel\":-1,\"modStruts\":-1,\"modVanityPlate\":-1,\"modGrille\":-1,\"windowTint\":-1,\"modRightFender\":-1,\"color1\":1,\"modTurbo\":false,\"modSeats\":-1,\"modArchCover\":-1,\"modTrimA\":-1,\"wheels\":0,\"extras\":[],\"modSideSkirt\":-1,\"modEngineBlock\":-1,\"modRoof\":-1,\"modEngine\":-1,\"modTransmission\":-1,\"modHorns\":-1,\"modBackWheels\":-1,\"pearlescentColor\":18,\"color2\":27,\"modSmokeEnabled\":false,\"modArmor\":-1,\"modOrnaments\":-1,\"modDoorSpeaker\":-1,\"modBrakes\":-1,\"modFrame\":-1,\"modRearBumper\":-1,\"dirtLevel\":6.02477121353149,\"modSuspension\":-1,\"modTrunk\":-1,\"modAirFilter\":-1,\"neonColor\":[255,0,255],\"health\":1000,\"modWindows\":-1,\"plateIndex\":0,\"modFrontBumper\":-1,\"modExhaust\":-1,\"modAPlate\":-1,\"modDial\":-1,\"modTank\":-1,\"modDashboard\":-1,\"wheelColor\":112,\"modFrontWheels\":-1,\"modHood\":-1,\"modXenon\":false,\"neonEnabled\":[false,false,false,false],\"modHydrolic\":-1,\"modAerials\":-1,\"modTrimB\":-1,\"modSpoilers\":-1}', 'car', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1180,23 +1147,6 @@ CREATE TABLE `phone_calls` (
   `accepts` int(11) NOT NULL COMMENT 'Appels accepter ou pas'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `phone_calls`
---
-
-INSERT INTO `phone_calls` (`id`, `owner`, `num`, `incoming`, `time`, `accepts`) VALUES
-(122, '560-7341', 'zd', 1, '2021-03-12 17:37:02', 0),
-(127, '5553285', 'police', 1, '2021-03-21 20:46:06', 0),
-(128, '5553285', 'police', 1, '2021-03-23 11:44:30', 0),
-(129, '5553285', 'ambulance', 1, '2021-03-23 11:48:38', 0),
-(130, '5553285', 'police', 1, '2021-03-23 11:55:42', 0),
-(131, '5553285', 'ambulance', 1, '2021-03-23 13:03:26', 0),
-(132, '5553285', 'ambulance', 1, '2021-03-23 13:03:37', 0),
-(133, '5553285', 'police', 1, '2021-03-23 13:18:38', 0),
-(134, '5553285', 'police', 1, '2021-03-23 20:13:27', 0),
-(135, '5553285', 'd', 1, '2021-03-24 15:22:08', 0),
-(136, '5553285', 'te', 1, '2021-03-24 15:25:15', 0),
-(137, '5553285', '5557620', 1, '2021-03-24 15:25:28', 0);
 
 -- --------------------------------------------------------
 
@@ -1214,94 +1164,6 @@ CREATE TABLE `phone_messages` (
   `owner` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `phone_messages`
---
-
-INSERT INTO `phone_messages` (`id`, `transmitter`, `receiver`, `message`, `time`, `isRead`, `owner`) VALUES
-(106, 'police', '5553285', 'test', '2021-03-15 12:32:35', 1, 1),
-(107, 'ambulance', '5553285', 'te', '2021-03-21 18:02:22', 1, 1),
-(108, 'ambulance', '5553285', 'te', '2021-03-21 18:02:42', 1, 1),
-(109, 'police', '5553285', 'te', '2021-03-21 18:05:06', 1, 1),
-(110, 'police', '5553285', 'GPS: 249.81767272949, -61.845775604248', '2021-03-21 18:05:10', 1, 1),
-(111, 'police', '5553285', 'te', '2021-03-21 18:07:41', 1, 1),
-(112, 'police', '5553285', 'GPS: 255.10691833496, -66.027061462402', '2021-03-21 18:07:43', 1, 1),
-(113, 'police', '5553285', 'qzd', '2021-03-21 18:07:54', 1, 1),
-(114, 'ambulance', '5553285', 'qzd', '2021-03-21 18:08:00', 1, 1),
-(115, 'ambulance', '5553285', 'qzd', '2021-03-21 18:08:06', 1, 1),
-(116, 'ambulance', '5553285', 'qzd', '2021-03-21 18:08:07', 1, 1),
-(117, 'ambulance', '5553285', 'qzd', '2021-03-21 18:09:07', 1, 1),
-(118, 'ambulance', '5553285', 'besoin d\'aide', '2021-03-21 18:09:11', 1, 1),
-(119, 'ambulance', '5553285', 'svp omg', '2021-03-21 18:11:59', 1, 1),
-(120, 'ambulance', '5553285', 'GPS: 240.49795532227, -62.097229003906', '2021-03-21 18:12:01', 1, 1),
-(121, 'ambulance', '5553285', 'GPS: 222.3935546875, -48.440368652344', '2021-03-21 18:16:10', 1, 1),
-(122, 'police', '5553285', 'qzd', '2021-03-21 18:16:23', 1, 1),
-(123, 'police', '5553285', 'GPS: 229.68893432617, -50.073574066162', '2021-03-21 18:16:26', 1, 1),
-(124, 'police', '5553285', 'GPS: 231.43865966797, -50.774494171143', '2021-03-21 18:16:27', 1, 1),
-(125, 'ambulance', '5553285', 'De #5553285 : qzd', '2021-03-21 18:21:17', 1, 0),
-(126, 'ambulance', '5553285', 'qzd', '2021-03-21 18:21:17', 1, 1),
-(127, 'police', '5553285', 'besoin d\'aide', '2021-03-21 18:21:57', 1, 1),
-(128, 'police', '5553285', 'qzd', '2021-03-21 18:22:12', 1, 1),
-(129, 'police', '5553285', 'qzd', '2021-03-21 18:22:27', 1, 1),
-(130, 'police', '5553285', 'De #5553285 : qzd', '2021-03-21 18:22:45', 1, 0),
-(131, 'police', '5553285', 'qzd', '2021-03-21 18:22:45', 1, 1),
-(132, 'police', '5553285', 'De #5553285 : besoinn d\'aide', '2021-03-21 18:22:53', 1, 0),
-(133, 'police', '5553285', 'besoinn d\'aide', '2021-03-21 18:22:53', 1, 1),
-(134, 'police', '5553285', 'De #5553285 : GPS: 273.64166259766, -69.225425720215', '2021-03-21 18:22:55', 1, 0),
-(135, 'police', '5553285', 'GPS: 273.64166259766, -69.225425720215', '2021-03-21 18:22:55', 1, 1),
-(136, 'police', '5553285', 'De #5553285 : te 273.63684082031, -74.269561767578', '2021-03-21 18:23:05', 1, 0),
-(137, 'police', '5553285', 'De #5553285 : qzd', '2021-03-21 20:46:09', 1, 0),
-(138, 'police', '5553285', 'qzd', '2021-03-21 20:46:10', 1, 1),
-(139, 'fbi', '5553285', 'De #5553285 : te 389.44674682617, -1980.95703125', '2021-03-21 20:50:37', 1, 0),
-(140, 'fbi', '5553285', 'De #5553285 : qzd', '2021-03-22 13:38:19', 1, 0),
-(141, 'fbi', '5553285', 'qzd', '2021-03-22 13:38:19', 1, 1),
-(142, 'fbi', '5553285', 'qzd', '2021-03-22 13:38:32', 1, 1),
-(143, 'police', '5553285', 'qzd', '2021-03-23 11:50:03', 1, 1),
-(144, 'police', '5553285', 'qzd', '2021-03-23 11:55:45', 1, 1),
-(145, 'fbi', '5553285', 'De #5553285 : qzd', '2021-03-23 11:56:40', 1, 0),
-(146, 'fbi', '5553285', 'qzd', '2021-03-23 11:56:40', 1, 1),
-(147, 'fbi', '5553285', 'De #5553285 : GPS: -1370.4753417969, -1092.3497314453', '2021-03-23 11:56:49', 1, 0),
-(148, 'fbi', '5553285', 'GPS: -1370.4753417969, -1092.3497314453', '2021-03-23 11:56:49', 1, 1),
-(149, 'ambulance', '5553285', 'qzd', '2021-03-23 11:57:01', 1, 1),
-(150, 'ambulance', '5553285', 'GPS: -1372.61328125, -1087.9041748047', '2021-03-23 11:57:02', 1, 1),
-(151, 'ambulance', '5553285', 'qzd', '2021-03-23 11:57:57', 1, 1),
-(152, 'ambulance', '5553285', 'qzd', '2021-03-23 11:57:58', 1, 1),
-(153, 'ambulance', '5553285', 'qzd', '2021-03-23 11:57:59', 1, 1),
-(154, 'ambulance', '5553285', 'qzd', '2021-03-23 11:58:41', 1, 1),
-(155, 'fbi', '5553285', 'qzd', '2021-03-23 13:01:45', 1, 1),
-(156, 'fbi', '5553285', 'De #5553285 : qzd', '2021-03-23 13:01:51', 1, 0),
-(157, 'fbi', '5553285', 'qzd', '2021-03-23 13:01:51', 1, 1),
-(158, 'police', '5553285', 'qzd', '2021-03-23 13:05:27', 1, 1),
-(159, 'police', '5553285', 'qzd', '2021-03-23 13:15:10', 1, 1),
-(160, 'police', '5553285', 'De #5553285 : zd -1372.1873779297, -1012.1591186523', '2021-03-23 13:18:42', 1, 0),
-(161, 'ambulance', '5553285', 'De #5553285 : te -1368.3719482422, -1008.719909668', '2021-03-23 13:18:54', 1, 0),
-(162, 'fbi', '5553285', 'De #5553285 : qzd -1366.7788085938, -1007.5999755859', '2021-03-23 13:19:10', 1, 0),
-(163, 'mechanic', '5553285', 'De #5553285 : qzd -1365.9852294922, -1006.9766235352', '2021-03-23 13:19:18', 1, 0),
-(164, 'police', '5553285', 'd', '2021-03-26 12:06:59', 1, 1),
-(165, 'police', '5553285', 'qzd', '2021-03-26 12:07:15', 1, 1),
-(166, 'police', '5553285', 'GPS: 401.24920654297, -1025.0303955078', '2021-03-26 12:07:19', 1, 1),
-(167, 'fbi', '5553285', 'De #5553285 : qzd', '2021-03-26 12:07:27', 1, 0),
-(168, 'fbi', '5553285', 'qzd', '2021-03-26 12:07:28', 1, 1),
-(169, 'fbi', '5553285', 'De #5553285 : qzd', '2021-03-26 12:07:29', 1, 0),
-(170, 'fbi', '5553285', 'qzd', '2021-03-26 12:07:29', 1, 1),
-(171, 'police', '5553285', 'De #5553285 : qzd', '2021-03-26 12:07:39', 1, 0),
-(172, 'police', '5553285', 'qzd', '2021-03-26 12:07:39', 1, 1),
-(173, 'police', '5553285', 'De #5553285 : qzd', '2021-03-26 12:07:41', 1, 0),
-(174, 'police', '5553285', 'qzd', '2021-03-26 12:07:41', 1, 1),
-(175, 'mechanic', '5553285', 'De #5553285 : qzd', '2021-03-26 12:07:52', 1, 0),
-(176, 'mechanic', '5553285', 'qzd', '2021-03-26 12:07:52', 1, 1),
-(177, 'mechanic', '5553285', 'De #5553285 : qzd', '2021-03-26 12:09:13', 1, 0),
-(178, 'mechanic', '5553285', 'qzd', '2021-03-26 12:09:13', 1, 1),
-(179, 'mechanic', '5553285', 'De #5553285 : qzd', '2021-03-26 12:10:37', 1, 0),
-(180, 'mechanic', '5553285', 'qzd', '2021-03-26 12:10:37', 1, 1),
-(181, 'mechanic', '5553285', 'De #5553285 : qzd', '2021-03-26 12:10:52', 1, 0),
-(182, 'mechanic', '5553285', 'qzd', '2021-03-26 12:10:52', 1, 1),
-(183, 'police', '5553285', 'De #5553285 : test', '2021-03-28 14:25:04', 1, 0),
-(184, 'police', '5553285', 'test', '2021-03-28 14:25:04', 1, 1),
-(185, 'police', '5553285', 'De #5553285 : test', '2021-03-29 14:44:08', 1, 0),
-(186, 'police', '5553285', 'test', '2021-03-29 14:44:08', 1, 1),
-(187, 'police', '5553285', 'De #5553285 : GPS: 387.00570678711, -839.34417724609', '2021-03-29 14:44:11', 1, 0),
-(188, 'police', '5553285', 'GPS: 387.00570678711, -839.34417724609', '2021-03-29 14:44:11', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1464,20 +1326,6 @@ CREATE TABLE `truck_inventory` (
   `owned` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `truck_inventory`
---
-
-INSERT INTO `truck_inventory` (`id`, `plate`, `data`, `owned`) VALUES
-(52, '09BNP073', '{}', 0),
-(53, 'HKZ 302 ', '{}', 0),
-(54, '63UPT935', '{\"black_money\":[{\"amount\":0}],\"coffre\":[]}', 0),
-(55, 'IZJY5903', '{}', 0),
-(56, '47XDK407', '{}', 0),
-(57, '65NVQ646', '{}', 0),
-(58, '63HAP444', '{}', 0),
-(59, 'IYOJ7437', '{}', 1),
-(60, '02IVK130', '{}', 0);
 
 -- --------------------------------------------------------
 
@@ -1554,12 +1402,6 @@ CREATE TABLE `users` (
   `tattoos` longtext COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`identifier`, `license`, `money`, `name`, `skin`, `job`, `job_grade`, `job2`, `job2_grade`, `loadout`, `position`, `bank`, `permission_level`, `group`, `firstname`, `lastname`, `dateofbirth`, `sex`, `height`, `status`, `is_dead`, `phone_number`, `jail`, `fivecoin`, `last_property`, `tattoos`) VALUES
-('steam:110000112a69b9e', 'license:1dc198bc80a8a6f99c58e103f76a7062361b145c', 10292, '[Dev] Enøs', '{\"ears_1\":-1,\"mask_1\":0,\"lipstick_4\":0,\"bproof_1\":0,\"sun_2\":0,\"beard_3\":0,\"eye_color\":0,\"lipstick_2\":0,\"blush_2\":0,\"glasses_2\":0,\"lipstick_3\":0,\"beard_4\":0,\"watches_2\":0,\"arms_2\":0,\"beard_1\":1,\"eyebrows_2\":0,\"nose_2\":0.07,\"decals_1\":0,\"sex\":0,\"bags_2\":0,\"eyebrows_3\":0,\"eyebrows_1\":0,\"age_1\":0,\"mom\":3,\"hair_2\":0,\"dad\":2,\"blush_1\":0,\"makeup_3\":0,\"torso_2\":0,\"bracelets_2\":0,\"nose_1\":1.0,\"helmet_2\":0,\"lipstick_1\":0,\"watches_1\":-1,\"shoes_1\":20,\"hair_color_2\":0,\"arms\":1,\"moles_2\":0,\"sun_1\":0,\"bodyb_1\":0,\"decals_2\":0,\"chest_2\":0,\"tshirt_2\":0,\"skin\":0.99999999999999,\"blemishes_2\":0,\"makeup_4\":0,\"chain_2\":0,\"chest_3\":0,\"complexion_2\":0,\"beard_2\":0,\"hair_1\":0,\"eyebrows_4\":0,\"shoes_2\":0,\"mask_2\":0,\"glasses_1\":0,\"blemishes_1\":0,\"bracelets_1\":-1,\"chain_1\":0,\"tshirt_1\":4,\"makeup_1\":0,\"bags_1\":0,\"age_2\":0,\"helmet_1\":-1,\"makeup_2\":0,\"blush_3\":0,\"hair_color_1\":0,\"moles_1\":1,\"torso_1\":27,\"pants_2\":0,\"bproof_2\":0,\"ears_2\":0,\"face\":0.86999999999999,\"complexion_1\":0,\"pants_1\":13,\"bodyb_2\":0,\"chest_1\":0}', 'gouv', 4, 'mafia', 1, '[{\"ammo\":0,\"components\":[],\"label\":\"Matraque\",\"name\":\"WEAPON_NIGHTSTICK\"},{\"ammo\":250,\"components\":[\"clip_default\"],\"label\":\"Pistolet\",\"name\":\"WEAPON_PISTOL\"},{\"ammo\":250,\"components\":[\"clip_default\"],\"label\":\"M4A1\",\"name\":\"WEAPON_CARBINERIFLE\"},{\"ammo\":25,\"components\":[],\"label\":\"Grenade fumigène\",\"name\":\"WEAPON_SMOKEGRENADE\"},{\"ammo\":168,\"components\":[],\"label\":\"Tazer\",\"name\":\"WEAPON_STUNGUN\"},{\"ammo\":0,\"components\":[],\"label\":\"Lampe torche\",\"name\":\"WEAPON_FLASHLIGHT\"}]', '{\"x\":-539.4,\"z\":47.4,\"y\":-197.1}', 85, 0, 'superadmin', 'Yanis', 'Brreezi', '16/09/2000', 'Homme', '185', '[{\"percent\":48.91,\"name\":\"hunger\",\"val\":489100},{\"percent\":61.6825,\"name\":\"thirst\",\"val\":616825},{\"percent\":0.0,\"name\":\"drug\",\"val\":0},{\"percent\":0.0,\"name\":\"drunk\",\"val\":0}]', 0, '5553285', 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1576,12 +1418,6 @@ CREATE TABLE `user_accessories` (
   `index` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
---
--- Déchargement des données de la table `user_accessories`
---
-
-INSERT INTO `user_accessories` (`id`, `identifier`, `mask`, `label`, `type`, `index`) VALUES
-(0, 'steam:110000112a69b9e', '{\"mask_2\":0,\"mask_1\":48}', 'Ruban adhésif gris pâle', 'Masque', NULL);
 
 -- --------------------------------------------------------
 
@@ -1596,12 +1432,6 @@ CREATE TABLE `user_accounts` (
   `money` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `user_accounts`
---
-
-INSERT INTO `user_accounts` (`id`, `identifier`, `name`, `money`) VALUES
-(3, 'steam:110000112a69b9e', 'black_money', 1100101);
 
 -- --------------------------------------------------------
 
@@ -1616,180 +1446,6 @@ CREATE TABLE `user_inventory` (
   `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `user_inventory`
---
-
-INSERT INTO `user_inventory` (`id`, `identifier`, `item`, `count`) VALUES
-(1, 'steam:110000112a69b9e', 'rhum', 0),
-(2, 'steam:110000112a69b9e', 'coca_leaf', 0),
-(3, 'steam:110000112a69b9e', 'meth_pooch', 0),
-(4, 'steam:110000112a69b9e', 'gazbottle', 0),
-(5, 'steam:110000112a69b9e', 'opium_pooch', 0),
-(6, 'steam:110000112a69b9e', 'gold', 0),
-(7, 'steam:110000112a69b9e', 'drpepper', 0),
-(8, 'steam:110000112a69b9e', 'washed_stone', 0),
-(9, 'steam:110000112a69b9e', 'schorange', 0),
-(10, 'steam:110000112a69b9e', 'golem', 0),
-(11, 'steam:110000112a69b9e', 'journaux', 0),
-(12, 'steam:110000112a69b9e', 'whiskycoca', 0),
-(13, 'steam:110000112a69b9e', 'saucisson', 0),
-(14, 'steam:110000112a69b9e', 'fixtool', 0),
-(15, 'steam:110000112a69b9e', 'jusfruit', 0),
-(16, 'steam:110000112a69b9e', 'chemicals', 0),
-(17, 'steam:110000112a69b9e', 'packaged_chicken', 0),
-(18, 'steam:110000112a69b9e', 'whiskycoc', 0),
-(19, 'steam:110000112a69b9e', 'weed', 0),
-(20, 'steam:110000112a69b9e', 'redbull', 0),
-(21, 'steam:110000112a69b9e', 'vodkrb', 0),
-(22, 'steam:110000112a69b9e', 'slaughtered_chicken', 0),
-(23, 'steam:110000112a69b9e', 'cannabis', 0),
-(24, 'steam:110000112a69b9e', 'sulfuric_acid', 0),
-(25, 'steam:110000112a69b9e', 'energy', 0),
-(26, 'steam:110000112a69b9e', 'soda', 0),
-(27, 'steam:110000112a69b9e', 'rhumfruit', 0),
-(28, 'steam:110000112a69b9e', 'packaged_plank', 0),
-(29, 'steam:110000112a69b9e', 'heroin', 0),
-(30, 'steam:110000112a69b9e', 'vodkaenergy', 0),
-(31, 'steam:110000112a69b9e', 'mixapero', 0),
-(32, 'steam:110000112a69b9e', 'weed_pooch', 0),
-(33, 'steam:110000112a69b9e', 'tabacblond', 0),
-(34, 'steam:110000112a69b9e', 'lsa', 0),
-(35, 'steam:110000112a69b9e', 'ticket', 0),
-(36, 'steam:110000112a69b9e', 'thionyl_chloride', 0),
-(37, 'steam:110000112a69b9e', 'clip', 0),
-(38, 'steam:110000112a69b9e', 'jager', 0),
-(39, 'steam:110000112a69b9e', 'petrol', 0),
-(40, 'steam:110000112a69b9e', 'essence', 0),
-(41, 'steam:110000112a69b9e', 'sim', 0),
-(42, 'steam:110000112a69b9e', 'carotool', 0),
-(43, 'steam:110000112a69b9e', 'tel', 1),
-(44, 'steam:110000112a69b9e', 'tabacbrunsec', 0),
-(45, 'steam:110000112a69b9e', 'tabacbrun', 0),
-(46, 'steam:110000112a69b9e', 'limonade', 0),
-(47, 'steam:110000112a69b9e', 'chemicalslisence', 0),
-(48, 'steam:110000112a69b9e', 'myrtealcool', 0),
-(49, 'steam:110000112a69b9e', 'jus_raisin', 0),
-(50, 'steam:110000112a69b9e', 'grand_cru', 0),
-(51, 'steam:110000112a69b9e', 'tabacblondsec', 0),
-(52, 'steam:110000112a69b9e', 'usbhacked', 0),
-(53, 'steam:110000112a69b9e', 'hydrochloric_acid', 0),
-(54, 'steam:110000112a69b9e', 'stone', 0),
-(55, 'steam:110000112a69b9e', 'medikit', 0),
-(56, 'steam:110000112a69b9e', 'fakebankingcard', 0),
-(57, 'steam:110000112a69b9e', 'raisin', 0),
-(58, 'steam:110000112a69b9e', 'copper', 0),
-(59, 'steam:110000112a69b9e', 'wood', 0),
-(60, 'steam:110000112a69b9e', 'vodkafruit', 0),
-(61, 'steam:110000112a69b9e', 'rhumcoca', 0),
-(62, 'steam:110000112a69b9e', 'coke_pooch', 0),
-(63, 'steam:110000112a69b9e', 'rcoin', 0),
-(64, 'steam:110000112a69b9e', 'bolcacahuetes', 0),
-(65, 'steam:110000112a69b9e', 'raspberry', 0),
-(66, 'steam:110000112a69b9e', 'c4_bank', 0),
-(67, 'steam:110000112a69b9e', 'malbora', 0),
-(68, 'steam:110000112a69b9e', 'jewels', 0),
-(69, 'steam:110000112a69b9e', 'blowtorch', 0),
-(70, 'steam:110000112a69b9e', 'menthe', 0),
-(71, 'steam:110000112a69b9e', 'fixkit', 0),
-(72, 'steam:110000112a69b9e', 'bolnoixcajou', 0),
-(73, 'steam:110000112a69b9e', 'petrol_raffin', 0),
-(74, 'steam:110000112a69b9e', 'vine', 0),
-(75, 'steam:110000112a69b9e', 'os', 0),
-(76, 'steam:110000112a69b9e', 'orange', 0),
-(77, 'steam:110000112a69b9e', 'opium', 0),
-(78, 'steam:110000112a69b9e', 'moneywash', 0),
-(79, 'steam:110000112a69b9e', 'alive_chicken', 0),
-(80, 'steam:110000112a69b9e', 'sodium_hydroxide', 0),
-(81, 'steam:110000112a69b9e', 'carparts', 0),
-(82, 'steam:110000112a69b9e', 'fish', 0),
-(83, 'steam:110000112a69b9e', 'jumelles', 0),
-(84, 'steam:110000112a69b9e', 'moelle', 0),
-(85, 'steam:110000112a69b9e', 'metreshooter', 0),
-(86, 'steam:110000112a69b9e', 'meth', 0),
-(87, 'steam:110000112a69b9e', 'iron', 0),
-(88, 'steam:110000112a69b9e', 'ecstasy', 0),
-(89, 'steam:110000112a69b9e', 'journal', 0),
-(90, 'steam:110000112a69b9e', 'mojito', 0),
-(91, 'steam:110000112a69b9e', 'martini', 0),
-(92, 'steam:110000112a69b9e', 'marijuana', 0),
-(93, 'steam:110000112a69b9e', 'teqpaf', 0),
-(94, 'steam:110000112a69b9e', 'cutted_wood', 0),
-(95, 'steam:110000112a69b9e', 'diamond', 0),
-(96, 'steam:110000112a69b9e', 'corps', 0),
-(97, 'steam:110000112a69b9e', 'carokit', 0),
-(98, 'steam:110000112a69b9e', 'lsd_pooch', 0),
-(99, 'steam:110000112a69b9e', 'lsd', 0),
-(100, 'steam:110000112a69b9e', 'carte', 0),
-(101, 'steam:110000112a69b9e', 'blowpipe', 0),
-(102, 'steam:110000112a69b9e', 'gitanes', 0),
-(103, 'steam:110000112a69b9e', 'intestin', 0),
-(104, 'steam:110000112a69b9e', 'ecstasy_pooch', 0),
-(105, 'steam:110000112a69b9e', 'cerveau', 0),
-(106, 'steam:110000112a69b9e', 'jagerbomb', 0),
-(107, 'steam:110000112a69b9e', 'poppyresin', 0),
-(108, 'steam:110000112a69b9e', 'bandage', 0),
-(109, 'steam:110000112a69b9e', 'coeur', 0),
-(110, 'steam:110000112a69b9e', 'whool', 0),
-(111, 'steam:110000112a69b9e', 'coke', 0),
-(112, 'steam:110000112a69b9e', 'fabric', 0),
-(113, 'steam:110000112a69b9e', 'bolpistache', 0),
-(114, 'steam:110000112a69b9e', 'jagercerbere', 0),
-(115, 'steam:110000112a69b9e', 'alcool', 0),
-(116, 'steam:110000112a69b9e', 'ice', 0),
-(117, 'steam:110000112a69b9e', 'bolchips', 0),
-(118, 'steam:110000112a69b9e', 'clothe', 0),
-(119, 'steam:110000112a69b9e', 'smoothie', 0),
-(120, 'steam:110000112a69b9e', 'pizza', 0),
-(121, 'steam:110000112a69b9e', 'pain', 20),
-(122, 'steam:110000112a69b9e', 'bacon_burger', 0),
-(123, 'steam:110000112a69b9e', 'milkshake', 0),
-(124, 'steam:110000112a69b9e', 'eau', 0),
-(125, 'steam:110000112a69b9e', 'cupcake', 0),
-(126, 'steam:110000112a69b9e', 'veggie_burger', 0),
-(127, 'steam:110000112a69b9e', 'cheesecake', 0),
-(128, 'steam:110000112a69b9e', 'cookie', 0),
-(129, 'steam:110000112a69b9e', 'salade', 0),
-(130, 'steam:110000112a69b9e', 'donuts', 0),
-(131, 'steam:110000112a69b9e', 'tea', 0),
-(132, 'steam:110000112a69b9e', 'churros', 0),
-(133, 'steam:110000112a69b9e', 'brownie', 0),
-(134, 'steam:110000112a69b9e', 'sandwich', 0),
-(135, 'steam:110000112a69b9e', 'chips', 0),
-(136, 'steam:110000112a69b9e', 'orangina', 0),
-(137, 'steam:110000112a69b9e', 'chicken_wrap', 0),
-(138, 'steam:110000112a69b9e', 'oasis', 0),
-(139, 'steam:110000112a69b9e', 'fish_wrap', 0),
-(140, 'steam:110000112a69b9e', 'fries', 0),
-(141, 'steam:110000112a69b9e', 'terminator_burger', 0),
-(142, 'steam:110000112a69b9e', 'fish_burger', 0),
-(143, 'steam:110000112a69b9e', 'tacos', 0),
-(144, 'steam:110000112a69b9e', 'sundae', 0),
-(145, 'steam:110000112a69b9e', 'capuccino', 0),
-(146, 'steam:110000112a69b9e', 'steakhouse_burger', 0),
-(147, 'steam:110000112a69b9e', 'hamburger', 0),
-(148, 'steam:110000112a69b9e', 'fanta', 0),
-(149, 'steam:110000112a69b9e', 'coca', 0),
-(150, 'steam:110000112a69b9e', 'sprite', 0),
-(151, 'steam:110000112a69b9e', 'chicken_burger', 0),
-(152, 'steam:110000112a69b9e', 'batonnets_de_mozzarella', 0),
-(153, 'steam:110000112a69b9e', 'salade_cesar', 0),
-(154, 'steam:110000112a69b9e', 'icetea', 0),
-(155, 'steam:110000112a69b9e', 'oignon_rings', 0),
-(156, 'steam:110000112a69b9e', 'coffee', 0),
-(157, 'steam:110000112a69b9e', 'biere', 0),
-(158, 'steam:110000112a69b9e', 'whisky', 0),
-(159, 'steam:110000112a69b9e', 'vodka', 0),
-(160, 'steam:110000112a69b9e', 'kevlar', 0),
-(161, 'steam:110000112a69b9e', 'hammerwirecutter', 0),
-(162, 'steam:110000112a69b9e', 'goldbar', 0),
-(163, 'steam:110000112a69b9e', 'drill', 0),
-(164, 'steam:110000112a69b9e', 'accesscard', 0),
-(165, 'steam:110000112a69b9e', 'hackerDevice', 0),
-(166, 'steam:110000112a69b9e', 'goldnecklace', 0),
-(167, 'steam:110000112a69b9e', 'lockpick', 0),
-(168, 'steam:110000112a69b9e', 'goldwatch', 0),
-(169, 'steam:110000112a69b9e', 'rasperry', 0);
 
 -- --------------------------------------------------------
 
@@ -1803,12 +1459,6 @@ CREATE TABLE `user_licenses` (
   `owner` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `user_licenses`
---
-
-INSERT INTO `user_licenses` (`id`, `type`, `owner`) VALUES
-(2, 'drive', 'steam:110000112a69b9e');
 
 -- --------------------------------------------------------
 
@@ -1823,15 +1473,6 @@ CREATE TABLE `user_sim` (
   `label` varchar(555) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `user_sim`
---
-
-INSERT INTO `user_sim` (`id`, `identifier`, `number`, `label`) VALUES
-(107, 'steam:110000112a69b9e', '5553285', 'SIM 5553285'),
-(108, 'steam:110000112a69b9e', '5553426', 'SIM 5553426'),
-(109, 'steam:110000112a69b9e', '5551157', 'SIM 5551157'),
-(110, 'steam:110000112a69b9e', '5551562', 'SIM 5551562');
 
 -- --------------------------------------------------------
 
@@ -1846,12 +1487,6 @@ CREATE TABLE `user_tenue` (
   `label` varchar(20) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
---
--- Déchargement des données de la table `user_tenue`
---
-
-INSERT INTO `user_tenue` (`id`, `identifier`, `tenue`, `label`) VALUES
-(0, 'steam:110000112a69b9e', '{\"watches_2\":0,\"blush_1\":0,\"pants_1\":24,\"beard_4\":0,\"eyebrows_1\":0,\"chain_2\":0,\"complexion_1\":0,\"chest_1\":0,\"eyebrows_2\":0,\"arms\":15,\"hair_color_1\":0,\"blush_2\":0,\"lipstick_1\":0,\"bags_2\":0,\"pants_2\":0,\"dad\":2,\"lipstick_2\":0,\"nose_2\":0.07,\"mask_1\":0,\"bodyb_2\":0,\"sex\":0,\"glasses_1\":0,\"makeup_4\":0,\"ears_1\":-1,\"shoes_1\":34,\"moles_2\":0,\"bags_1\":0,\"bracelets_1\":-1,\"makeup_1\":0,\"hair_color_2\":0,\"makeup_3\":0,\"tshirt_2\":0,\"hair_1\":0,\"nose_1\":1.0,\"tshirt_1\":15,\"chest_2\":0,\"decals_2\":0,\"eye_color\":0,\"decals_1\":0,\"mask_2\":0,\"face\":0.86999999999999,\"beard_3\":0,\"makeup_2\":0,\"lipstick_3\":0,\"shoes_2\":0,\"sun_2\":0,\"helmet_2\":0,\"chest_3\":0,\"chain_1\":0,\"blemishes_1\":0,\"torso_2\":0,\"hair_2\":0,\"helmet_1\":-1,\"bproof_1\":0,\"bracelets_2\":0,\"bodyb_1\":0,\"glasses_2\":0,\"watches_1\":-1,\"bproof_2\":0,\"beard_2\":0,\"lipstick_4\":0,\"moles_1\":1,\"age_2\":0,\"age_1\":0,\"blemishes_2\":0,\"beard_1\":1,\"mom\":3,\"arms_2\":0,\"ears_2\":0,\"torso_1\":78,\"eyebrows_4\":0,\"eyebrows_3\":0,\"complexion_2\":0,\"sun_1\":0,\"skin\":0.99999999999999,\"blush_3\":0}', 'raya');
 
 -- --------------------------------------------------------
 

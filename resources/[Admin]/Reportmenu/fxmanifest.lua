@@ -23,7 +23,7 @@ client_scripts {
 }
 
 client_scripts {
-     'example.lua',
+     'report.lua',
 }
 
 server_script 'server.lua'

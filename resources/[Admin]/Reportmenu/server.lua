@@ -1,6 +1,6 @@
 webhook = "https://discord.com/api/webhooks/795583402585489428/BOJr-801dX7X4JZVGCe-FnYE-XhOuK7jDasqBXHCqDn50Ku_EdLlWr6UFNTiYk42Tpk3"
 local DISCORD_NAME = "Report Bot" 
-local DISCORD_IMAGE = "https://th.bing.com/th/id/OIP.GvZHe1SbMqrSCXl18X_lCwHaIr?pid=Api&rs=1"
+local DISCORD_IMAGE = "https://www.pngkit.com/png/detail/123-1239684_attention-png-not-found-icon-png.png"
 
 PerformHttpRequest(webhook, function(err, text, headers) end, 'POST', json.encode({avatar_url = DISCORD_IMAGE, username = DISCORD_NAME, content = "Report Bot est **EN LIGNE**", avatar_url = DISCORD_IMAGE}), { ['Content-Type'] = 'application/json' })
 
